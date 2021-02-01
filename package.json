@@ -1,0 +1,39 @@
+{
+  "name": "cointickr",
+  "version": "1.0.0",
+  "description": "Read crypto prices using the Messari API.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "parcel watch app/index.html",
+    "build": "parcel build app/index.html",
+    "server": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealice/cointickr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therealice/cointickr/issues"
+  },
+  "homepage": "https://github.com/therealice/cointickr#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.7",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
