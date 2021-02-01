@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import axios from 'axios'
+import numeral from 'numeral';
 import { useInterval } from './Hooks';
+import './App.scss';
+
+function priceFormatter(number) {
+  return numeral(number).format('0,0[.]0000');
+}
+
+function priceChangeFormatter(number) {
+  const prefix = number > 0 ? '+' : '';
+  return prefix + numeral(number).format('0.00%');
+}
 
 async function getPrices() {
   return axios.get("/prices")
@@ -30,28 +41,29 @@ function App() {
   }, 10000);
 
   return (
-    <React.Fragment>
+    <div className="app">
       <h1>Cointickr</h1>
-      <table>
-        <tbody>
-          {prices.map(p => (
-            <tr key={p.currency}>
-              <td>
-                <img className="logo" src={p.logo_url} alt="Asset logo" />
-              </td>
-              <td>
-                <div>{p.currency}-EUR</div>
-                <div>{p.name}</div>
-              </td>
-              <td>
-                <div>€{p.price}</div>
-                <div>{p['1d'].price_change_pct}</div>                
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </React.Fragment>
+      <div>
+        {prices.map(p => (
+          <div className="row" key={p.currency}>
+
+            <div className="currency-block">
+              <img className="logo" src={p.logo_url} alt="Asset logo" />
+              <div className="currency-col">
+                <div className="currency">{p.currency}-EUR</div>
+                <div className="name">{p.name}</div>
+              </div>
+            </div>            
+
+            <div className="price-col">
+              <div className="price">{priceFormatter(p.price)}</div>
+              <div className={"price-change " + (p['1d'].price_change_pct > 0 ? 'price-positive' : 'price-negative')}>{priceChangeFormatter(p['1d'].price_change_pct)}</div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

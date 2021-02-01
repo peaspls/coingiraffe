@@ -13,13 +13,15 @@ app.get("/prices", (request, response) => {
   const endpoint = `https://api.nomics.com/v1/currencies/ticker`;  
   const params = {
     key: process.env.NOMICS_API_KEY,
-    ids: 'BTC, ADA, ETH',
+    ids: 'BTC,ADA,EOS,NU,XTZ,ETH,LINK,GRT,FIL,SNX',
     interval: '1d,30d',
     convert: 'EUR'
   };
   const query = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-
-  axios.get(`${endpoint}?${query}`)
+  const url = `${endpoint}?${query}`;
+  
+  console.log(`Fetching URL: ${url}`);
+  axios.get(url)
     .then(result => {
       response.send(result.data);
     })
