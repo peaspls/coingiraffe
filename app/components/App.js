@@ -42,15 +42,22 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Cointickr</h1>
+      <h1>Coinshell.app</h1>
       <div>
+        <div className="heading">
+          <div>MARKETS</div>
+          <div>24H</div>
+        </div>
         {prices.map(p => (
           <div className="row" key={p.currency}>
 
             <div className="currency-block">
-              <img className="logo" src={p.logo_url} alt="Asset logo" />
               <div className="currency-col">
-                <div className="currency">{p.currency}-EUR</div>
+                <div className="currency">
+                  <span>{p.currency}</span>
+                  <span className="currency-sep">&bull;</span>
+                  <span>EUR</span>
+                </div>
                 <div className="name">{p.name}</div>
               </div>
             </div>            

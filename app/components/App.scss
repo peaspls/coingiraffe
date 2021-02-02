@@ -1,5 +1,5 @@
 body {
-  background: rgb(6, 13, 19);
+  background: rgb(12, 17, 22);
   color: rgb(255, 255, 255);
   font-family: monospace;
 }
@@ -7,19 +7,19 @@ body {
   width: 100%;
   height: 100%;
 }
-.logo {
-  width: 20px;
-  height: 20px;
-  margin-right: 15px;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 12px;
+  color: rgb(145, 145, 145);
 }
 .row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
-  padding: 10px 12px;
-  background: rgb(18, 29, 39);
+  margin-bottom: 1px;
+  padding: 12px 12px;  
 }
 .currency-col {
   display: flex;
@@ -35,23 +35,27 @@ body {
   flex-direction: row;
   align-items: center;
 }
+.currency-sep {
+  margin: 0 3px;
+  color: rgb(145, 145, 145);
+}
 .currency { 
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: bold;
 }
 .name {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 20px;
-  color: #9a9191;
+  color: rgb(145, 145, 145);
 }
 .price {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: normal;
 }
 .price-change {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
 }
 .price-positive {
