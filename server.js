@@ -13,7 +13,7 @@ app.get("/prices", (request, response) => {
   const endpoint = `https://api.nomics.com/v1/currencies/ticker`;  
   const params = {
     key: process.env.NOMICS_API_KEY,
-    ids: 'BTC,ADA,EOS,NU,XTZ,ETH,LINK,GRT,FIL,SNX',
+    ids: 'BTC,ETH,ADA,XRP,DOT,LTC,LINK,DOGE,XLM,UNI,AAVE,EOS,XTZ,MKR,SNX,IOTA,FIL,CELO,BAT,NANO,KNC,AMPL,BAND,GRT,NU',
     interval: '1d,30d',
     convert: 'EUR'
   };

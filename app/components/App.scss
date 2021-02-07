@@ -7,6 +7,15 @@ body {
   width: 100%;
   height: 100%;
 }
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+}
+.giraffeSmall {
+  width: 20px;
+  margin-right: 10px;
+}
 .heading {
   display: flex;
   justify-content: space-between;

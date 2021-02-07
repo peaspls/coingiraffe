@@ -3,6 +3,7 @@ import axios from 'axios'
 import numeral from 'numeral';
 import { useInterval } from './Hooks';
 import './App.scss';
+import giraffeSmall from '../assets/giraffe_small.png'
 
 function priceFormatter(number) {
   return numeral(number).format('0,0[.]0000');
@@ -42,7 +43,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Coingiraffe</h1>
+      <div className="header">
+        <img className="giraffeSmall" src={giraffeSmall} alt="Giraffe Logo" />
+        <h1>Coingiraffe</h1>
+      </div>      
       <div>
         <div className="heading">
           <div>MARKETS</div>
