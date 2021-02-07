@@ -26,6 +26,7 @@ async function getPrices() {
 
 function App() {
   const [prices, setPrices] = useState([]);
+  const [time, setTime] = useState('1d');
   const fiat = '€';
 
   useEffect(() => {
@@ -51,7 +52,11 @@ function App() {
       <div>
         <div className="heading">
           <div>NAME</div>
-          <div>24H</div>
+          {
+            time === '1d' 
+            ? <div className="clickableHeading" onClick={() => setTime('30d')}>24 Hour</div>
+            : <div className="clickableHeading" onClick={() => setTime('1d')}>30 Days</div>
+          }          
         </div>
         {prices.map(p => (
           <div className="row" key={p.currency}>
@@ -67,7 +72,7 @@ function App() {
 
             <div className="price-col">
               <div className="price">{fiat}{priceFormatter(p.price)}</div>
-              <div className={"price-change " + (p['1d'].price_change_pct > 0 ? 'price-positive' : 'price-negative')}>{priceChangeFormatter(p['1d'].price_change_pct)}</div>
+              <div className={"price-change " + (p[time].price_change_pct > 0 ? 'price-positive' : 'price-negative')}>{priceChangeFormatter(p[time].price_change_pct)}</div>
             </div>
 
           </div>

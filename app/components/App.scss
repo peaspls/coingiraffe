@@ -26,6 +26,9 @@ body {
   padding: 5px 12px;
   color: rgb(145, 145, 145);
 }
+.clickableHeading {
+  cursor: pointer;
+}
 .row {
   display: flex;
   flex-direction: row;
