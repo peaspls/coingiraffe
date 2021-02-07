@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Coinshell.app</h1>
+      <h1>Coingiraffe</h1>
       <div>
         <div className="heading">
           <div>MARKETS</div>

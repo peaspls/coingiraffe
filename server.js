@@ -20,7 +20,6 @@ app.get("/prices", (request, response) => {
   const query = Object.keys(params).map(key => key + '=' + params[key]).join('&');
   const url = `${endpoint}?${query}`;
   
-  console.log(`Fetching URL: ${url}`);
   axios.get(url)
     .then(result => {
       response.send(result.data);

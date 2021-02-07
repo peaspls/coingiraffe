@@ -1,7 +1,7 @@
 {
-  "name": "cointickr",
+  "name": "coingiraffe",
   "version": "1.0.0",
-  "description": "Read crypto prices using the Messari API.",
+  "description": "Read crypto prices using the Nomics API.",
   "main": "server.js",
   "scripts": {
     "dev": "parcel watch app/index.html",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealice/cointickr.git"
+    "url": "git+https://github.com/therealice/coingiraffe.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/therealice/cointickr/issues"
+    "url": "https://github.com/therealice/coingiraffe/issues"
   },
-  "homepage": "https://github.com/therealice/cointickr#readme",
+  "homepage": "https://github.com/therealice/coingiraffe#readme",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.10",
     "babel-preset-env": "^1.7.0",
