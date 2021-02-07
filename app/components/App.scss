@@ -11,10 +11,14 @@ body {
   display: flex;
   align-items: center;
   padding: 0px 12px;
+  margin: 20px 0;
 }
 .giraffeSmall {
   width: 20px;
   margin-right: 10px;
+}
+.headerText {
+  margin: 0;
 }
 .heading {
   display: flex;

@@ -26,6 +26,7 @@ async function getPrices() {
 
 function App() {
   const [prices, setPrices] = useState([]);
+  const fiat = '€';
 
   useEffect(() => {
     (async () => {
@@ -45,11 +46,11 @@ function App() {
     <div className="app">
       <div className="header">
         <img className="giraffeSmall" src={giraffeSmall} alt="Giraffe Logo" />
-        <h1>Coingiraffe</h1>
+        <h1 className="headerText">Coingiraffe</h1>
       </div>      
       <div>
         <div className="heading">
-          <div>MARKETS</div>
+          <div>NAME</div>
           <div>24H</div>
         </div>
         {prices.map(p => (
@@ -59,15 +60,13 @@ function App() {
               <div className="currency-col">
                 <div className="currency">
                   <span>{p.currency}</span>
-                  <span className="currency-sep">&bull;</span>
-                  <span>EUR</span>
                 </div>
                 <div className="name">{p.name}</div>
               </div>
             </div>            
 
             <div className="price-col">
-              <div className="price">{priceFormatter(p.price)}</div>
+              <div className="price">{fiat}{priceFormatter(p.price)}</div>
               <div className={"price-change " + (p['1d'].price_change_pct > 0 ? 'price-positive' : 'price-negative')}>{priceChangeFormatter(p['1d'].price_change_pct)}</div>
             </div>
 
