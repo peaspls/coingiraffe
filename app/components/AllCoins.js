@@ -22,11 +22,15 @@ const AllCoins = (props) => {
               props.favorites[p.currency] !== undefined
               ? <FavoriteIcon 
                   fill="rgb(240, 133, 19)" 
+                  width="15px"
+                  height="15px"
                   className="favorite" 
                   onClick={() => props.onToggleFavorite(p.currency)} 
                 />
               : <FavoriteBorderIcon 
                   fill="rgb(135, 135, 135)" 
+                  width="15px"
+                  height="15px"
                   className="favorite" 
                   onClick={() => props.onToggleFavorite(p.currency)} 
                 />

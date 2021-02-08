@@ -1,0 +1,12 @@
+.app-bar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  background: rgb(12, 17, 22);
+  overflow: hidden;
+}
