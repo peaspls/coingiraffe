@@ -2,6 +2,7 @@ import React from 'react';
 import FavoriteIcon from './FavoriteIcon';
 import FavoriteBorderIcon from './FavoriteBorderIcon';
 import { price, marketCap, priceChange } from './Formatter';
+import './AllCoins.scss';
 
 const AllCoins = (props) => {
   return (

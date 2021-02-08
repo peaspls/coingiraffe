@@ -1,5 +1,6 @@
 import React from 'react';
 import giraffeSmall from '../assets/giraffe_small.png';
+import './Header.scss';
 
 const Header = () => {
   return (
