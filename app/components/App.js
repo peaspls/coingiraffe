@@ -5,6 +5,7 @@ import { useInterval } from './Hooks';
 import './App.scss';
 import giraffeSmall from '../assets/giraffe_small.png';
 import FavoriteIcon from './FavoriteIcon';
+import FavoriteBorderIcon from './FavoriteBorderIcon';
 
 function priceFormatter(number) {
   return numeral(number).format('0,0[.]0000');
@@ -80,11 +81,19 @@ function App() {
         {prices.map(p => (
           <div className="row" key={p.currency}>
             <div className="currency-block">
-              <FavoriteIcon 
-                fill={favorites[p.currency] !== undefined ? "rgb(234, 184, 37)" : "rgb(135, 135, 135)"} 
-                className="favorite" 
-                onClick={() => toggleFavorite(p.currency)} 
-              />
+              {
+                favorites[p.currency] !== undefined
+                ? <FavoriteIcon 
+                    fill="rgb(240, 133, 19)" 
+                    className="favorite" 
+                    onClick={() => toggleFavorite(p.currency)} 
+                  />
+                : <FavoriteBorderIcon 
+                    fill="rgb(135, 135, 135)" 
+                    className="favorite" 
+                    onClick={() => toggleFavorite(p.currency)} 
+                  />
+              }              
               <div className="currency-col">
                 <div className="currency">
                   <span>{p.currency}</span>
