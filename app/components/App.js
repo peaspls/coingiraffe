@@ -3,7 +3,8 @@ import axios from 'axios'
 import numeral from 'numeral';
 import { useInterval } from './Hooks';
 import './App.scss';
-import giraffeSmall from '../assets/giraffe_small.png'
+import giraffeSmall from '../assets/giraffe_small.png';
+import FavoriteIcon from './FavoriteIcon';
 
 function priceFormatter(number) {
   return numeral(number).format('0,0[.]0000');
@@ -26,6 +27,7 @@ async function getPrices() {
 
 function App() {
   const [prices, setPrices] = useState([]);
+  const [favorites, setFavorites] = useState({});
   const [time, setTime] = useState('1d');
   const fiat = '€';
 
@@ -42,6 +44,19 @@ function App() {
       setPrices(result);
     })();
   }, 10000);
+
+  const toggleFavorite = (currency) => {
+    const change = {
+      ...favorites
+    };
+    if(change[currency] === undefined) {
+      change[currency] = true;
+    } else {
+      delete change[currency];
+    }
+
+    setFavorites(change);
+  };
 
   return (
     <div className="app">
@@ -60,8 +75,12 @@ function App() {
         </div>
         {prices.map(p => (
           <div className="row" key={p.currency}>
-
             <div className="currency-block">
+              <FavoriteIcon 
+                fill={favorites[p.currency] !== undefined ? "rgb(234, 184, 37)" : "rgb(135, 135, 135)"} 
+                className="favorite" 
+                onClick={() => toggleFavorite(p.currency)} 
+              />
               <div className="currency-col">
                 <div className="currency">
                   <span>{p.currency}</span>

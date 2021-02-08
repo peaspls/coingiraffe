@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 5px 12px;
-  color: rgb(145, 145, 145);
+  color: rgb(135, 135, 135);
 }
 .clickableHeading {
   cursor: pointer;
@@ -53,17 +53,21 @@ body {
 }
 .currency-sep {
   margin: 0 3px;
-  color: rgb(145, 145, 145);
+  color: rgb(135, 135, 135);
 }
 .currency { 
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
 }
+.favorite {
+  margin-right: 10px;
+  cursor: pointer;
+}
 .name {
   font-size: 12px;
   line-height: 20px;
-  color: rgb(145, 145, 145);
+  color: rgb(135, 135, 135);
 }
 .price {
   font-size: 16px;
