@@ -23,27 +23,22 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await getPrices();
-      setPrices(result);
+      setPrices(await getPrices());
     })();    
   }, []);
 
   useInterval(() => {
     (async () => {
-      const result = await getPrices();
-      setPrices(result);
+      setPrices(await getPrices());
     })();
   }, 10000);
 
   const toggleFavorite = (currency) => {
-    const change = {
-      ...favorites
-    };
-    if(change[currency] === undefined) {
-      change[currency] = true;
-    } else {
-      delete change[currency];
-    }
+    const change = { ...favorites };
+
+    change[currency] === undefined
+      ? change[currency] = true
+      : delete change[currency];
 
     setFavorites(change);
   };
