@@ -2,6 +2,7 @@ body {
   background: rgb(12, 17, 22);
   color: rgb(255, 255, 255);
   font-family: monospace;
+  font-size: 13px
 }
 .app {
   width: 100%;
@@ -65,7 +66,12 @@ body {
   cursor: pointer;
 }
 .name {
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 20px;
+  color: rgb(135, 135, 135);
+}
+.market_cap {
+  font-size: 13px;
   line-height: 20px;
   color: rgb(135, 135, 135);
 }
@@ -75,7 +81,7 @@ body {
   font-weight: normal;
 }
 .price-change {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
 }
 .price-positive {

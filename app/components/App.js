@@ -10,6 +10,10 @@ function priceFormatter(number) {
   return numeral(number).format('0,0[.]0000');
 }
 
+function marketCapFormatter(number) {
+  return numeral(number).format('0.00a');
+}
+
 function priceChangeFormatter(number) {
   const prefix = number > 0 ? '+' : '';
   return prefix + numeral(number).format('0.00%');
@@ -66,11 +70,11 @@ function App() {
       </div>      
       <div>
         <div className="heading">
-          <div>NAME</div>
+          <div>MARKET CAP</div>
           {
             time === '1d' 
-            ? <div className="clickableHeading" onClick={() => setTime('30d')}>24 Hour</div>
-            : <div className="clickableHeading" onClick={() => setTime('1d')}>30 Days</div>
+            ? <div className="clickableHeading" onClick={() => setTime('30d')}>24H</div>
+            : <div className="clickableHeading" onClick={() => setTime('1d')}>30D</div>
           }          
         </div>
         {prices.map(p => (
@@ -85,7 +89,7 @@ function App() {
                 <div className="currency">
                   <span>{p.currency}</span>
                 </div>
-                <div className="name">{p.name}</div>
+                <div className="market_cap">{fiat}{marketCapFormatter(p.market_cap)}</div>
               </div>
             </div>            
 
