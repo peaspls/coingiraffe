@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 import Header from './Header';
 import AllCoins from './AllCoins';
+import { getPrices } from './Api';
 import { useInterval } from './Hooks';
 import './App.scss';
-
-const getPrices = async () => {
-  return axios.get("/prices")
-  .then(response => {
-    return response.data;
-  })
-  .catch(err => {
-    console.log("Error fetching data from server", err);
-  });
-};
 
 const App = () => {
   const [prices, setPrices] = useState([]);
   const [favorites, setFavorites] = useState({});
+  const [updatedTime, setUpdatedTime] = useState(new Date());
   const [time, setTime] = useState('1d');
   const fiat = '€';
 
@@ -25,12 +16,10 @@ const App = () => {
     (async () => {
       setPrices(await getPrices());
     })();    
-  }, []);
+  }, [updatedTime]);
 
   useInterval(() => {
-    (async () => {
-      setPrices(await getPrices());
-    })();
+    setUpdatedTime(new Date());
   }, 10000);
 
   const toggleFavorite = (currency) => {
