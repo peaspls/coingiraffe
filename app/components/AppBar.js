@@ -10,12 +10,14 @@ const AppBar = (props) => {
         fill={props.statView === 'all' ? "white" : "rgb(135, 135, 135)"} 
         width="25px"
         height="25px"
+        className="icon" 
         onClick={() => props.onSetStatView('all')} 
       />
       <FavoriteIcon 
         fill={props.statView === 'favorite' ? "white" : "rgb(135, 135, 135)"} 
         width="25px"
         height="25px"
+        className="icon" 
         onClick={() => props.onSetStatView('favorite')} 
       />
     </div>  
