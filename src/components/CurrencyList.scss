@@ -33,22 +33,24 @@
   margin: 0 3px;
   color: rgb(135, 135, 135);
 }
-.currency { 
+.currency {
+  text-transform: uppercase; 
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
 }
-.favorite {
-  margin-right: 10px;
+.favorite-btn {
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: 0 10px 0 0;
 }
-.name {
-  font-size: 13px;
-  line-height: 20px;
-  color: rgb(135, 135, 135);
+.favorite-btn:focus {
+  outline: none;
 }
 .market-cap {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   color: rgb(135, 135, 135);
 }
@@ -58,7 +60,7 @@
   font-weight: normal;
 }
 .price-c {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 .price-p {

@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-import AllCoins from './AllCoins';
+import CurrencyList from './CurrencyList';
 import AppBar from './AppBar';
-import { getPrices } from '../lib/api';
+import { getCurrencies } from '../lib/api';
 import { useInterval } from './Hooks';
 import './App.scss';
 
 const App = () => {
-  const [allPrices, setAllPrices] = useState([]);
-  const [favoritePrices, setFavoritePrices] = useState([]);
+  const [currencies, setCurrencies] = useState([]);
   const [favorites, setFavorites] = useState({});
   const [updatedTime, setUpdatedTime] = useState(new Date());
-  const [statView, setStatView] = useState('all');
+  const [view, setView] = useState('all');
   const fiat = '€';
 
   useEffect(() => {
     (async () => {
-      const allPrices = await getPrices();
-      setAllPrices(allPrices);      
+      const currencies = await getCurrencies();
+      setCurrencies(currencies);
     })();    
   }, [updatedTime]);
 
@@ -27,14 +26,7 @@ const App = () => {
 
   const toggleFavorite = (id) => {
     const change = { ...favorites };
-
-    change[id] === undefined
-      ? change[id] = true
-      : delete change[id];    
-
-    const favoritePrices = allPrices.filter(p => change[p.id] !== undefined);
-
-    setFavoritePrices(favoritePrices);
+    change[id] === undefined ? change[id] = true : delete change[id];    
     setFavorites(change);
   };
 
@@ -42,18 +34,17 @@ const App = () => {
     <div className="app">
       <Header />
       <div className="app-bar-space">
-        {
-          statView === 'all'
-          ? <AllCoins prices={allPrices} fiat={fiat} favorites={favorites}
-              onToggleFavorite={toggleFavorite}   
-            />
-          : <AllCoins prices={favoritePrices} fiat={fiat} favorites={favorites}  
-              onToggleFavorite={toggleFavorite}       
-            />
-        }   
+        <CurrencyList 
+          currencies={currencies} 
+          fiat={fiat} 
+          favorites={favorites}
+          filter={{view}}
+          onToggleFavorite={toggleFavorite} 
+        />            
       </div>      
-      <AppBar statView={statView} 
-        onSetStatView={setStatView} 
+      <AppBar 
+        view={view} 
+        onViewChange={setView} 
       />
     </div>
   );

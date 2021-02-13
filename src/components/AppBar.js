@@ -6,20 +6,22 @@ import './AppBar.scss';
 const AppBar = (props) => {
   return (
     <div className="app-bar">
-      <LeaderBoardIcon 
-        fill={props.statView === 'all' ? "white" : "rgb(135, 135, 135)"} 
-        width="25px"
-        height="25px"
-        className="icon" 
-        onClick={() => props.onSetStatView('all')} 
-      />
-      <FavoriteIcon 
-        fill={props.statView === 'favorite' ? "white" : "rgb(135, 135, 135)"} 
-        width="25px"
-        height="25px"
-        className="icon" 
-        onClick={() => props.onSetStatView('favorite')} 
-      />
+      <button className="btn" onClick={() => props.onViewChange('all')}>
+        <LeaderBoardIcon 
+          className={`icon ${props.view === 'all' ? "active" : "inactive"}`}
+          fill={props.view === 'all' ? "white" : "rgb(135, 135, 135)"} 
+          width="25px"
+          height="25px"
+        />
+      </button>
+      <button className="btn" onClick={() => props.onViewChange('favorite')}>
+        <FavoriteIcon 
+          className={`icon ${props.view === 'favorite' ? "active" : "inactive"}`}
+          fill={props.view === 'favorite' ? "white" : "rgb(135, 135, 135)"} 
+          width="25px"
+          height="25px"
+        />
+      </button>
     </div>  
   );
 }

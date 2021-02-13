@@ -1,6 +1,6 @@
 const baseApiURL = 'https://api.coingecko.com/api/v3';
 
-const getPrices = async () => {
+const getCurrencies = async () => {
   const params = new URLSearchParams({
     vs_currency: 'eur',
     order: 'market_cap_desc',
@@ -19,4 +19,4 @@ const getPrices = async () => {
     });
 };
 
-export { getPrices };
+export { getCurrencies };
