@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 const baseApiURL = 'https://api.coingecko.com/api/v3';
 
 const getPrices = async () => {
@@ -14,13 +12,11 @@ const getPrices = async () => {
 
   const url = `${baseApiURL}/coins/markets?${params}`; 
 
-  return axios.get(url)
-  .then(response => {
-    return response.data;
-  })
-  .catch(err => {
-    console.log("Error fetching data from server", err);
-  });
+  return fetch(url)
+    .then(response => response.json())
+    .catch(err => {
+      console.log("Error fetching data from server", err);
+    });
 };
 
 export { getPrices };
