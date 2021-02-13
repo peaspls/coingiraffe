@@ -13,6 +13,15 @@ const App = () => {
   const [view, setView] = useState('all');
   const fiat = '€';
 
+  // Load on mount favorites
+  useEffect(() => {
+    const favorites = window.localStorage.getItem('favorites');
+    if(favorites !== null) {
+      setFavorites(JSON.parse(favorites));
+    }    
+  }, []);
+
+  // Load currencies on mount and whenever updatedTime has changed
   useEffect(() => {
     (async () => {
       const currencies = await getCurrencies();
@@ -20,6 +29,7 @@ const App = () => {
     })();    
   }, [updatedTime]);
 
+  // Change updated time every 10s to trigger loading currencies
   useInterval(() => {
     setUpdatedTime(new Date());
   }, 10000);
@@ -28,6 +38,7 @@ const App = () => {
     const change = { ...favorites };
     change[id] === undefined ? change[id] = true : delete change[id];    
     setFavorites(change);
+    window.localStorage.setItem('favorites', JSON.stringify(change));
   };
 
   return (
