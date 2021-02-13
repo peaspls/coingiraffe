@@ -1,11 +1,3 @@
-# dependencies
-/node_modules
-
-# production
-/dist
-
-# development
+node_modules
 .cache
-
-# configuration
-.env
+dist

@@ -1,23 +1,17 @@
 # Coingiraffe
-Read crypto prices using the Nomics API.
+Read crypto prices using the Coingecko API.
 
 Demo: https://coingiraffe.com
 
 ## Install
-Copy the .env.example to .env and fill in the missing values.
-Then run install the packages.
+Install the packages.
 
 ```
 npm i
 ```
 
 ## Run
-You will need to run two shells. One for the server and one for the frontend.
-First, start up a local web server on http://localhost:8000/.
-```
-npm run server
-```
-Then in another shell build and listen to changes in the frontend.
+Sart up a local web server on http://localhost:1234/ and listen to file changes.
 
 ```
 npm run dev

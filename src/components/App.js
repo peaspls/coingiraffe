@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import AllCoins from './AllCoins';
 import AppBar from './AppBar';
-import { getPrices } from './Api';
+import { getPrices } from '../lib/api';
 import { useInterval } from './Hooks';
 import './App.scss';
 
@@ -11,7 +11,6 @@ const App = () => {
   const [favoritePrices, setFavoritePrices] = useState([]);
   const [favorites, setFavorites] = useState({});
   const [updatedTime, setUpdatedTime] = useState(new Date());
-  const [time, setTime] = useState('1d');
   const [statView, setStatView] = useState('all');
   const fiat = '€';
 
@@ -26,14 +25,14 @@ const App = () => {
     setUpdatedTime(new Date());
   }, 10000);
 
-  const toggleFavorite = (currency) => {
+  const toggleFavorite = (id) => {
     const change = { ...favorites };
 
-    change[currency] === undefined
-      ? change[currency] = true
-      : delete change[currency];    
+    change[id] === undefined
+      ? change[id] = true
+      : delete change[id];    
 
-    const favoritePrices = allPrices.filter(p => change[p.currency] !== undefined);
+    const favoritePrices = allPrices.filter(p => change[p.id] !== undefined);
 
     setFavoritePrices(favoritePrices);
     setFavorites(change);
@@ -45,13 +44,11 @@ const App = () => {
       <div className="app-bar-space">
         {
           statView === 'all'
-          ? <AllCoins prices={allPrices} fiat={fiat} favorites={favorites} time={time}
-              onToggleFavorite={toggleFavorite}
-              onSetTime={setTime}        
+          ? <AllCoins prices={allPrices} fiat={fiat} favorites={favorites}
+              onToggleFavorite={toggleFavorite}   
             />
-          : <AllCoins prices={favoritePrices} fiat={fiat} favorites={favorites} time={time} 
-              onToggleFavorite={toggleFavorite}
-              onSetTime={setTime}        
+          : <AllCoins prices={favoritePrices} fiat={fiat} favorites={favorites}  
+              onToggleFavorite={toggleFavorite}       
             />
         }   
       </div>      
