@@ -53,8 +53,8 @@ const CurrencyList = (props) => {
           </div>            
           <div className="price-col">
             <div className="price">{props.fiat}{price(p.current_price)}</div>
-            <div className={"price-c " + (p.price_change_percentage_24h > 0 ? 'price-p' : 'price-n')}>
-              {priceChange(p.price_change_percentage_24h)}
+            <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
+              {priceChange(p.price_change_percentage_24h_in_currency)}
             </div>
           </div>
         </div>
