@@ -1,9 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import SparkLine from './SparkLine';
-import { price, priceChange } from '../lib/formatter';
-import { Tiny, Small, MediumOrGreater } from '../lib/mediaQuery';
-import './CurrencyList.scss';
 import CurrencyGroup from './CurrencyGroup';
+import SparkLine from './SparkLine';
+import PriceChange from './PriceChange';
+import { Tiny, Small, MediumOrGreater } from '../lib/mediaQuery';
+import { price } from '../lib/formatter';
+import './CurrencyList.scss';
 
 const CurrencyList = (props) => {
   const [currencies, setCurrencies] = useState([]);
@@ -48,30 +49,20 @@ const CurrencyList = (props) => {
           <Tiny>
             <div className="price-col">
               <div className="price">{props.fiat}{price(p.current_price)}</div>
-              <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
-                {priceChange(p.price_change_percentage_24h_in_currency)}
-              </div>
+              <PriceChange value={p.price_change_percentage_24h_in_currency} />
             </div>
           </Tiny>
 
           <Small>
             <div className="price">{props.fiat}{price(p.current_price)}</div>
-            <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
-              {priceChange(p.price_change_percentage_24h_in_currency)}
-            </div>
-            <div className={"price-c " + (p.price_change_percentage_7d_in_currency > 0 ? 'price-p' : 'price-n')}>
-              {priceChange(p.price_change_percentage_7d_in_currency)}
-            </div>
+            <PriceChange value={p.price_change_percentage_24h_in_currency} />            
+            <PriceChange value={p.price_change_percentage_7d_in_currency} />            
           </Small>
 
           <MediumOrGreater>
             <div className="price">{props.fiat}{price(p.current_price)}</div>
-            <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
-              {priceChange(p.price_change_percentage_24h_in_currency)}
-            </div>
-            <div className={"price-c " + (p.price_change_percentage_7d_in_currency > 0 ? 'price-p' : 'price-n')}>
-              {priceChange(p.price_change_percentage_7d_in_currency)}
-            </div>
+            <PriceChange value={p.price_change_percentage_24h_in_currency} />            
+            <PriceChange value={p.price_change_percentage_7d_in_currency} />
             <SparkLine
               data={p.sparkline_in_7d.price}
               width={135}

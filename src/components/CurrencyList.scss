@@ -17,10 +17,6 @@
   flex-direction: column;
   align-items: flex-end;
 }
-.currency-sep {
-  margin: 0 3px;
-  color: rgb(135, 135, 135);
-}
 .market-cap-heading {
   text-align: left;
   width: 110px;
@@ -30,31 +26,19 @@
   text-align: right;
   width: 130px;
 }
+.price-c-heading {
+  width: 80px;
+  text-align: right;
+}
+.sparkline-heading {
+  width: 145px;
+  margin-right: 10px;
+  text-align: right;
+}
 .price {
   font-size: 16px;
   line-height: 20px;
   font-weight: normal;
   text-align: right;
   width: 130px;
-}
-.price-c-heading {
-  width: 80px;
-  text-align: right;
-}
-.price-c {
-  font-size: 14px;
-  line-height: 20px;
-  width: 80px;
-  text-align: right;
-}
-.price-p {
-  color: rgb(46, 174, 52);
-}
-.price-n {
-  color: rgb(249, 103, 45)
-}
-.sparkline-heading {
-  width: 145px;
-  margin-right: 10px;
-  text-align: right;
 }
