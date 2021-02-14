@@ -7,7 +7,7 @@ const getCurrencies = async () => {
     per_page: 100,
     page: 1,
     sparkline: false,
-    price_change_percentage: '24h'
+    price_change_percentage: '24h,7d'
   });
 
   const url = `${baseApiURL}/coins/markets?${params}`; 

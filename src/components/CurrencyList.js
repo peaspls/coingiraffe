@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import FavoriteIcon from './FavoriteIcon';
-import FavoriteBorderIcon from './FavoriteBorderIcon';
+import Favorite from './Favorite';
 import { price, marketCap, priceChange } from '../lib/formatter';
+import { Tiny, SmallOrGreater } from '../lib/mediaQuery';
 import './CurrencyList.scss';
 
 const CurrencyList = (props) => {
@@ -19,32 +19,24 @@ const CurrencyList = (props) => {
   return (
     <div>
       <div className="heading">
-        <div>MARKET CAP</div>
-        <div>24H</div>
+        <div className="market-cap-heading">MARKET CAP</div>
+        <Tiny>
+          <div className="price-heading">24H</div>
+        </Tiny>
+        <SmallOrGreater>
+          <div className="price-heading">PRICE</div>
+          <div className="price-c-heading">24H</div>
+          <div className="price-c-heading">7D</div>
+        </SmallOrGreater>
       </div>
       {currencies.map(p => (
         <div className="row" key={p.id}>
 
           <div className="currency-block">
-            {
-              props.favorites[p.id] !== undefined
-              ? <button className="favorite-btn" onClick={() => props.onToggleFavorite(p.id)}>
-                  <FavoriteIcon 
-                    fill="rgb(240, 133, 19)" 
-                    width="18px"
-                    height="18px"
-                    className="favorite" 
-                  />
-                </button>
-              : <button className="favorite-btn" onClick={() => props.onToggleFavorite(p.id)}>
-                  <FavoriteBorderIcon 
-                    fill="rgb(135, 135, 135)" 
-                    width="18px"
-                    height="18px"
-                    className="favorite" 
-                  />
-                </button>
-            }
+            <Favorite
+              active={props.favorites[p.id] !== undefined} 
+              onClick={() => props.onToggleFavorite(p.id)}
+            />
             <div className="currency-col">
               <div className="currency">
                 <span className="rank">#{p.market_cap_rank}</span>
@@ -54,12 +46,24 @@ const CurrencyList = (props) => {
             </div>
           </div>
 
-          <div className="price-col">
+          <Tiny>
+            <div className="price-col">
+              <div className="price">{props.fiat}{price(p.current_price)}</div>
+              <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
+                {priceChange(p.price_change_percentage_24h_in_currency)}
+              </div>
+            </div>
+          </Tiny>
+
+          <SmallOrGreater>
             <div className="price">{props.fiat}{price(p.current_price)}</div>
             <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
               {priceChange(p.price_change_percentage_24h_in_currency)}
             </div>
-          </div>
+            <div className={"price-c " + (p.price_change_percentage_7d_in_currency > 0 ? 'price-p' : 'price-n')}>
+              {priceChange(p.price_change_percentage_7d_in_currency)}
+            </div>            
+          </SmallOrGreater>
 
         </div>
       ))}
