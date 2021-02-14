@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Favorite from './Favorite';
+import React, { Fragment, useState, useEffect } from 'react';
 import SparkLine from './SparkLine';
-import { price, marketCap, priceChange } from '../lib/formatter';
+import { price, priceChange } from '../lib/formatter';
 import { Tiny, Small, MediumOrGreater } from '../lib/mediaQuery';
 import './CurrencyList.scss';
+import CurrencyGroup from './CurrencyGroup';
 
 const CurrencyList = (props) => {
   const [currencies, setCurrencies] = useState([]);
@@ -18,7 +18,7 @@ const CurrencyList = (props) => {
   }, [props.filter]);
 
   return (
-    <div>
+    <Fragment>
       <div className="heading">
         <div className="market-cap-heading">MARKET CAP</div>
         <Tiny>
@@ -38,19 +38,12 @@ const CurrencyList = (props) => {
       </div>
       {currencies.map(p => (
         <div className="row" key={p.id}>
-          <div className="currency-block">
-            <Favorite
-              active={props.favorites[p.id] !== undefined} 
-              onClick={() => props.onToggleFavorite(p.id)}
-            />
-            <div className="currency-col">
-              <div className="currency">
-                <span className="rank">#{p.market_cap_rank}</span>
-                <span className="symbol">{p.symbol}</span>
-              </div>
-              <div className="market-cap">{props.fiat}{marketCap(p.market_cap)}</div>
-            </div>
-          </div>
+          <CurrencyGroup 
+            data={p}
+            fiat={props.fiat}
+            favorites={props.favorites}
+            onToggleFavorite={props.onToggleFavorite}
+          />
 
           <Tiny>
             <div className="price-col">
@@ -87,7 +80,7 @@ const CurrencyList = (props) => {
           </MediumOrGreater>
         </div>
       ))}
-    </div> 
+    </Fragment> 
   );
 }
 

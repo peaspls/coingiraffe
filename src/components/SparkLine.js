@@ -38,7 +38,7 @@ const SparkLine = (props) => {
   }, [ref]);
   
   return (
-    <div className="sparkline-container" ref={ref}></div>
+    <div ref={ref}></div>
   );
 };
 

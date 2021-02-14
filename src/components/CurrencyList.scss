@@ -12,45 +12,19 @@
   margin-bottom: 1px;
   padding: 12px 12px;  
 }
-.currency-col {
-  display: flex;
-  flex-direction: column;
-  width: 110px;
-}
 .price-col {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.currency-block {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .currency-sep {
   margin: 0 3px;
   color: rgb(135, 135, 135);
-}
-.rank {
-  font-size: 12px;
-  line-height: 20px;
-  margin-right: 5px;
-}
-.symbol {
-  text-transform: uppercase; 
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: bold;
 }
 .market-cap-heading {
   text-align: left;
   width: 110px;
   margin-left: 38px;
-}
-.market-cap {
-  font-size: 14px;
-  line-height: 20px;
-  color: rgb(135, 135, 135);
 }
 .price-heading {
   text-align: right;
