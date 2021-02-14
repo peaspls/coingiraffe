@@ -3,7 +3,7 @@ import Header from './Header';
 import CurrencyList from './CurrencyList';
 import BottomBar from './BottomBar';
 import { getCurrencies } from '../lib/api';
-import { useInterval } from './Hooks';
+import { useInterval } from '../lib/hooks';
 import './App.scss';
 
 const App = () => {
