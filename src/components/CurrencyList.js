@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Favorite from './Favorite';
+import SparkLine from './SparkLine';
 import { price, marketCap, priceChange } from '../lib/formatter';
-import { Tiny, SmallOrGreater } from '../lib/mediaQuery';
+import { Tiny, Small, MediumOrGreater } from '../lib/mediaQuery';
 import './CurrencyList.scss';
 
 const CurrencyList = (props) => {
@@ -23,15 +24,20 @@ const CurrencyList = (props) => {
         <Tiny>
           <div className="price-heading">24H</div>
         </Tiny>
-        <SmallOrGreater>
+        <Small>
           <div className="price-heading">PRICE</div>
           <div className="price-c-heading">24H</div>
           <div className="price-c-heading">7D</div>
-        </SmallOrGreater>
+        </Small>
+        <MediumOrGreater>
+          <div className="price-heading">PRICE</div>
+          <div className="price-c-heading">24H</div>
+          <div className="price-c-heading">7D</div>
+          <div className="sparkline-heading">7D</div>
+        </MediumOrGreater>
       </div>
       {currencies.map(p => (
         <div className="row" key={p.id}>
-
           <div className="currency-block">
             <Favorite
               active={props.favorites[p.id] !== undefined} 
@@ -55,16 +61,30 @@ const CurrencyList = (props) => {
             </div>
           </Tiny>
 
-          <SmallOrGreater>
+          <Small>
             <div className="price">{props.fiat}{price(p.current_price)}</div>
             <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
               {priceChange(p.price_change_percentage_24h_in_currency)}
             </div>
             <div className={"price-c " + (p.price_change_percentage_7d_in_currency > 0 ? 'price-p' : 'price-n')}>
               {priceChange(p.price_change_percentage_7d_in_currency)}
-            </div>            
-          </SmallOrGreater>
+            </div>
+          </Small>
 
+          <MediumOrGreater>
+            <div className="price">{props.fiat}{price(p.current_price)}</div>
+            <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
+              {priceChange(p.price_change_percentage_24h_in_currency)}
+            </div>
+            <div className={"price-c " + (p.price_change_percentage_7d_in_currency > 0 ? 'price-p' : 'price-n')}>
+              {priceChange(p.price_change_percentage_7d_in_currency)}
+            </div>
+            <SparkLine
+              data={p.sparkline_in_7d.price}
+              width={135}
+              height={50}
+            />
+          </MediumOrGreater>
         </div>
       ))}
     </div> 

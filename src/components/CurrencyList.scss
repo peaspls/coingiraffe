@@ -54,23 +54,23 @@
 }
 .price-heading {
   text-align: right;
-  width: 150px;
+  width: 130px;
 }
 .price {
   font-size: 16px;
   line-height: 20px;
   font-weight: normal;
   text-align: right;
-  width: 150px;
+  width: 130px;
 }
 .price-c-heading {
-  width: 90px;
+  width: 80px;
   text-align: right;
 }
 .price-c {
   font-size: 14px;
   line-height: 20px;
-  width: 90px;
+  width: 80px;
   text-align: right;
 }
 .price-p {
@@ -78,4 +78,9 @@
 }
 .price-n {
   color: rgb(249, 103, 45)
+}
+.sparkline-heading {
+  width: 145px;
+  margin-right: 10px;
+  text-align: right;
 }
