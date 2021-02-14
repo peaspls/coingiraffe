@@ -24,6 +24,7 @@ const CurrencyList = (props) => {
       </div>
       {currencies.map(p => (
         <div className="row" key={p.id}>
+
           <div className="currency-block">
             {
               props.favorites[p.id] !== undefined
@@ -43,20 +44,23 @@ const CurrencyList = (props) => {
                     className="favorite" 
                   />
                 </button>
-            }              
+            }
             <div className="currency-col">
               <div className="currency">
-                <span>{p.symbol}</span>
+                <span className="rank">#{p.market_cap_rank}</span>
+                <span className="symbol">{p.symbol}</span>
               </div>
               <div className="market-cap">{props.fiat}{marketCap(p.market_cap)}</div>
             </div>
-          </div>            
+          </div>
+
           <div className="price-col">
             <div className="price">{props.fiat}{price(p.current_price)}</div>
             <div className={"price-c " + (p.price_change_percentage_24h_in_currency > 0 ? 'price-p' : 'price-n')}>
               {priceChange(p.price_change_percentage_24h_in_currency)}
             </div>
           </div>
+
         </div>
       ))}
     </div> 
