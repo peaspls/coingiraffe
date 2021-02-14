@@ -3,23 +3,16 @@ import Header from './Header';
 import CurrencyList from './CurrencyList';
 import BottomBar from './BottomBar';
 import { getCurrencies } from '../lib/api';
-import { useInterval } from '../lib/hooks';
+import { useInterval } from '../lib/interval';
+import { useFavorites } from '../lib/favorites';
 import './App.scss';
 
 const App = () => {
   const [currencies, setCurrencies] = useState([]);
-  const [favorites, setFavorites] = useState({});
+  const [favorites, setFavorites] = useFavorites();
   const [updatedTime, setUpdatedTime] = useState(new Date());
   const [view, setView] = useState('all');
   const fiat = '€';
-
-  // Load on mount favorites
-  useEffect(() => {
-    const favorites = window.localStorage.getItem('favorites');
-    if(favorites !== null) {
-      setFavorites(JSON.parse(favorites));
-    }    
-  }, []);
 
   // Load currencies on mount and whenever updatedTime has changed
   useEffect(() => {
@@ -38,7 +31,6 @@ const App = () => {
     const change = { ...favorites };
     change[id] === undefined ? change[id] = true : delete change[id];    
     setFavorites(change);
-    window.localStorage.setItem('favorites', JSON.stringify(change));
   };
 
   return (
