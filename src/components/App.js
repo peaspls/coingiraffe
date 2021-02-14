@@ -9,7 +9,7 @@ import './App.scss';
 
 const App = () => {
   const [currencies, setCurrencies] = useState([]);
-  const [favorites, setFavorites] = useFavorites();
+  const [favorites, toggleFavorite] = useFavorites();
   const [updatedTime, setUpdatedTime] = useState(new Date());
   const [view, setView] = useState('all');
   const fiat = '€';
@@ -26,12 +26,6 @@ const App = () => {
   useInterval(() => {
     setUpdatedTime(new Date());
   }, 10000);
-
-  const toggleFavorite = (id) => {
-    const change = { ...favorites };
-    change[id] === undefined ? change[id] = true : delete change[id];    
-    setFavorites(change);
-  };
 
   return (
     <div className="app">

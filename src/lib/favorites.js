@@ -10,14 +10,16 @@ const saveToLocalStorage = (favorites) => {
 };
 
 const useFavorites = () => {
-  const [state, _setState] = useState(getFromLocalStorage());
+  const [favorites, setFavorites] = useState(getFromLocalStorage());
 
-  const setState = (favorites) => {
-    _setState(favorites);
+  const toggleFavorite = (id) => {
+    const change = { ...favorites };
+    change[id] === undefined ? change[id] = true : delete change[id];    
+    setFavorites(change);
     saveToLocalStorage(favorites);
   };
 
-  return [state, setState];
+  return [favorites, toggleFavorite];
 };
 
 export { useFavorites };
