@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
-import AppBar from './AppBar';
+import BottomBar from './BottomBar';
 import { getCurrencies } from '../lib/api';
 import { useInterval } from './Hooks';
 import './App.scss';
@@ -53,7 +53,7 @@ const App = () => {
           onToggleFavorite={toggleFavorite} 
         />            
       </div>      
-      <AppBar 
+      <BottomBar 
         view={view} 
         onViewChange={setView} 
       />

@@ -1,11 +1,11 @@
 import React from 'react';
 import LeaderBoardIcon from './LeaderBoardIcon';
 import FavoriteIcon from './FavoriteIcon';
-import './AppBar.scss';
+import './BottomBar.scss';
 
-const AppBar = (props) => {
+const BottomBar = (props) => {
   return (
-    <div className="app-bar">
+    <div className="bar">
       <button className="btn" onClick={() => props.onViewChange('all')}>
         <LeaderBoardIcon 
           className={`icon ${props.view === 'all' ? "active" : "inactive"}`}
@@ -26,4 +26,4 @@ const AppBar = (props) => {
   );
 }
 
-export default AppBar;
+export default BottomBar;
