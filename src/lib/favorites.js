@@ -16,7 +16,7 @@ const useFavorites = () => {
     const change = { ...favorites };
     change[id] === undefined ? change[id] = true : delete change[id];    
     setFavorites(change);
-    saveToLocalStorage(favorites);
+    saveToLocalStorage(change);
   };
 
   return [favorites, toggleFavorite];
