@@ -9,7 +9,6 @@ const BottomBar = (props) => {
       <button className="btn" onClick={() => props.onViewChange('all')}>
         <LeaderBoardIcon 
           className={`icon ${props.view === 'all' ? "active" : "inactive"}`}
-          fill={props.view === 'all' ? "white" : "rgb(135, 135, 135)"} 
           width="25px"
           height="25px"
         />
@@ -17,7 +16,6 @@ const BottomBar = (props) => {
       <button className="btn" onClick={() => props.onViewChange('favorite')}>
         <FavoriteIcon 
           className={`icon ${props.view === 'favorite' ? "active" : "inactive"}`}
-          fill={props.view === 'favorite' ? "white" : "rgb(135, 135, 135)"} 
           width="25px"
           height="25px"
         />

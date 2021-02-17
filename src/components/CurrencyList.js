@@ -22,20 +22,20 @@ const CurrencyList = (props) => {
   return (
     <Fragment>
       <div className="heading">
-        <div className="market-cap-heading">MARKET CAP</div>
+        <div className="market-cap-heading box-heading">MARKET CAP</div>
         <Tiny>
-          <div className="price-heading">24H</div>
+          <div className="price-heading box-heading">24H</div>
         </Tiny>
         <Small>
-          <div className="price-heading">PRICE</div>
-          <div className="price-c-heading">24H</div>
-          <div className="price-c-heading">7D</div>
+          <div className="price-heading box-heading">PRICE</div>
+          <div className="price-c-heading box-heading">24H</div>
+          <div className="price-c-heading box-heading">7D</div>
         </Small>
         <MediumOrGreater>
-          <div className="price-heading">PRICE</div>
-          <div className="price-c-heading">24H</div>
-          <div className="price-c-heading">7D</div>
-          <div className="sparkline-heading">7D</div>
+          <div className="price-heading box-heading">PRICE</div>
+          <div className="price-c-heading box-heading">24H</div>
+          <div className="price-c-heading box-heading">7D</div>
+          <div className="sparkline-heading box-heading">7D</div>
         </MediumOrGreater>
       </div>
       {currencies.map(p => (

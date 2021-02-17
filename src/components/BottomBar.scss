@@ -7,7 +7,7 @@
   bottom: 0;
   left: 0;
   height: 50px;
-  background: rgb(12, 17, 22);
+  background: white;
   overflow: hidden;
 }
 .btn {
@@ -25,7 +25,9 @@
 }
 .inactive {
   border-bottom: 2px rgb(0, 0, 0, 0) solid;
+  fill: rgb(121, 109, 109);
 }
 .active {
-  border-bottom: 2px white solid;
+  border-bottom: 2px rgb(12, 17, 22) solid;
+  fill: rgb(12, 17, 22);
 }

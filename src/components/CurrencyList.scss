@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   padding: 5px 12px;
-  color: rgb(135, 135, 135);
 }
 .row {
   display: flex;
@@ -11,7 +10,12 @@
   align-items: center;
   margin-bottom: 1px;
   padding: 12px 12px;
-  background: #1e1e2b;
+  border-bottom: 1px #e8e8e8 solid;
+}
+.box-heading {
+  background: #fdc0763d;
+  color: #262f3e;
+  padding: 5px;
 }
 .market-cap-heading {
   text-align: left;
