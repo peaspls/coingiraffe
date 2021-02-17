@@ -13,11 +13,14 @@ const CurrencyGroup = (props) => {
         onClick={() => onToggleFavorite(data.id)}
       />
       <div className="currency-col">
-        <div>
-          <span className="rank">#{data.market_cap_rank}</span>
+        <div className="currency-row">          
+          <img className="image" src={data.image} />
           <span className="symbol">{data.symbol}</span>
         </div>
-        <div className="market-cap">{fiat}{marketCap(data.market_cap)}</div>
+        <div className="currency-row">
+          <span className="rank">#{data.market_cap_rank}</span>
+          <span className="market-cap">{fiat}{marketCap(data.market_cap)}</span>
+        </div>
       </div>
     </div>      
   );

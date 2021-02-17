@@ -8,10 +8,19 @@
   flex-direction: column;
   width: 110px;
 }
+.currency-row {
+  display: flex;
+}
 .rank {
   font-size: 12px;
   line-height: 20px;
   margin-right: 5px;
+  color: rgb(135, 135, 135);
+}
+.image {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px 0 0;
 }
 .symbol {
   text-transform: uppercase; 
