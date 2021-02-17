@@ -4,6 +4,7 @@ import PriceGroup from './PriceGroup';
 import SparkLine from './SparkLine';
 import Price from './Price';
 import PriceChange from './PriceChange';
+import Volume from './Volume';
 import { Tiny, Small, MediumOrGreater } from '../lib/mediaQuery';
 import './CurrencyList.scss';
 
@@ -36,6 +37,7 @@ const CurrencyList = (props) => {
           <div className="price-c-heading box-heading">24H</div>
           <div className="price-c-heading box-heading">7D</div>
           <div className="sparkline-heading box-heading">7D</div>
+          <div className="volume-heading box-heading">VOLUME(24H)</div>
         </MediumOrGreater>
       </div>
       {currencies.map(p => (
@@ -70,6 +72,7 @@ const CurrencyList = (props) => {
               width={135}
               height={50}
             />
+            <Volume value={p.total_volume} fiat={props.fiat} />
           </MediumOrGreater>
         </div>
       ))}
