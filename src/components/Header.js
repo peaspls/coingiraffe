@@ -1,5 +1,5 @@
 import React from 'react';
-import giraffeSmall from '../assets/giraffe_small.png';
+import giraffeSmall from '../assets/giraffe.svg';
 import './Header.scss';
 
 const Header = () => {
