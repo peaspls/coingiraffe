@@ -1,13 +1,30 @@
 import React from 'react';
-import giraffeSmall from '../assets/giraffe.svg';
-import './Header.scss';
+import { createUseStyles } from 'react-jss'
+import giraffe from '../assets/giraffe.svg';
+
+const useStyles = createUseStyles({
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '20px 12px'
+  },
+  logo: {
+    width: 30,
+    marginRight: 10
+  },
+  text: {
+    margin: 0
+  }
+});
 
 const Header = () => {
+  const cls = useStyles();
+
   return (
-    <div className="header">
-      <img className="giraffe-sm" src={giraffeSmall} alt="Giraffe Logo" />
-      <h1 className="header-text">Coingiraffe</h1>
-    </div>  
+    <header className={cls.header}>
+      <img className={cls.logo} src={giraffe} alt="Giraffe Logo" />
+      <h1 className={cls.text}>Coingiraffe</h1>
+    </header>  
   );
 }
 

@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import { createUseStyles } from 'react-jss';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
 import BottomBar from './BottomBar';
 import { getCurrencies } from '../lib/api';
 import { useInterval } from '../lib/interval';
 import { useFavorites } from '../lib/favorites';
-import './App.scss';
+
+const useStyles = createUseStyles({
+  appBarSpace: {
+    marginBottom: 50
+  }
+});
 
 const App = () => {
+  const cls = useStyles();
   const [currencies, setCurrencies] = useState([]);
   const [favorites, toggleFavorite] = useFavorites();
   const [updatedTime, setUpdatedTime] = useState(new Date());
@@ -28,9 +35,9 @@ const App = () => {
   }, 10000);
 
   return (
-    <div className="app">
+    <Fragment>
       <Header />
-      <div className="app-bar-space">
+      <main className={cls.appBarSpace}>
         <CurrencyList 
           currencies={currencies} 
           fiat={fiat} 
@@ -38,12 +45,12 @@ const App = () => {
           filter={{view}}
           onToggleFavorite={toggleFavorite} 
         />            
-      </div>      
+      </main>      
       <BottomBar 
         view={view} 
         onViewChange={setView} 
       />
-    </div>
+    </Fragment>
   );
 };
 

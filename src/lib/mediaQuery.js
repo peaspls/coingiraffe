@@ -1,27 +1,27 @@
 import { useMediaQuery } from 'react-responsive';
  
-const Tiny = ({ children }) => {
-  return useMediaQuery({ maxWidth: 500 }) ? children : null;
+const TinyMedia = ({ children }) => {
+  return useMediaQuery({ maxWidth: 450 }) ? children : null;
 }
 
-const Small = ({ children }) => {
-  return useMediaQuery({ minWidth: 501, maxWidth: 650 }) ? children : null;
+const SmallMedia = ({ children }) => {
+  return useMediaQuery({ minWidth: 451, maxWidth: 750 }) ? children : null;
 }
 
-const SmallOrGreater = ({ children }) => {
-  return useMediaQuery({ minWidth: 501 }) ? children : null;
+const SmallOrGreaterMedia = ({ children }) => {
+  return useMediaQuery({ minWidth: 451 }) ? children : null;
 }
 
-const Medium = ({ children }) => {
-  return useMediaQuery({ minWidth: 651, maxWidth: 1200 }) ? children : null;
+const MediumMedia = ({ children }) => {
+  return useMediaQuery({ minWidth: 751, maxWidth: 1200 }) ? children : null;
 }
 
-const MediumOrGreater = ({ children }) => {
-  return useMediaQuery({ minWidth: 651 }) ? children : null;
+const MediumOrGreaterMedia = ({ children }) => {
+  return useMediaQuery({ minWidth: 751 }) ? children : null;
 }
 
-const Large = ({ children }) => {
+const LargeMedia = ({ children }) => {
   return useMediaQuery({ minWidth: 1201 }) ? children : null;
 }
 
-export { Tiny, Small, SmallOrGreater, Medium, MediumOrGreater, Large }
+export { TinyMedia, SmallMedia, SmallOrGreaterMedia, MediumMedia, MediumOrGreaterMedia, LargeMedia }

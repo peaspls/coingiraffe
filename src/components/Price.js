@@ -1,12 +1,26 @@
 import React from 'react';
-import { price } from '../lib/formatter';
-import './Price.scss';
+import { createUseStyles } from 'react-jss';
+import { price, marketCap } from '../lib/formatter';
+
+const useStyles = createUseStyles({
+  price: {
+    fontSize: 14,
+    lineHeight: '20px',
+    fontWeight: 'normal',
+  }
+});
 
 const Price = (props) => {
-  const { value, fiat } = props;
+  const cls = useStyles();
+  const { value, fiat, format, className } = props;
 
   return (
-    <div className="price">{fiat}{price(value)}</div>
+    <div className={className}>
+      <div className={cls.price}>
+        {fiat}
+        {format === 'short' ? marketCap(value) : price(value)}      
+      </div>
+    </div>
   );
 }
 

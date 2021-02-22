@@ -1,13 +1,29 @@
 import React from 'react';
+import { createUseStyles } from 'react-jss';
 import { priceChange } from '../lib/formatter';
-import './PriceChange.scss';
+
+const useStyles = createUseStyles({
+  change: {
+    fontSize: 14,
+    lineHeight: '20px'
+  },
+  pos: {
+    color: 'rgb(46, 174, 52)'
+  },
+  neg: {
+    color: 'rgb(249, 103, 45)'
+  }  
+});
 
 const PriceChange = (props) => {
-  const { value } = props;
+  const cls = useStyles();
+  const { value, className } = props;
 
   return (
-    <div className={"change " + (value > 0 ? 'pos' : 'neg')}>
-      {priceChange(value)}
+    <div className={className}>
+      <div className={`${cls.change} ${value > 0 ? cls.pos : cls.neg}`}>
+        {priceChange(value)}
+      </div>
     </div>
   );
 }
