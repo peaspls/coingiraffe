@@ -15,10 +15,7 @@ const App = () => {
   const cls = useStyles();
   const [view, setView] = useState('all');
   const [fiat, setFiat] = useState('eur');
-  const [result, update] = useCurrencies({ 
-    fiat,
-    interval: 10000
-  });
+  const [result, update] = useCurrencies({ fiat, interval: 10000 });
 
   const onFiatChange = async (fiat) => {
     setFiat(fiat)
