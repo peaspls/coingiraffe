@@ -43,15 +43,15 @@ const useStyles = createUseStyles({
   left: {
     color:  props => props.offTextColor,
     position: 'absolute',
-    right: 3,
-    fontSize: 11,
+    right: 4,
+    fontSize: 10,
     top: -7
   },
   right: {
     color:  props => props.onTextColor,
     position: 'absolute',
-    left: 3,
-    fontSize: 11,
+    left: 4,
+    fontSize: 10,
     top: -7
   }
 });
