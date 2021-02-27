@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { createUseStyles } from 'react-jss';
 import { useCurrencies } from '../hooks/currencies';
+import { useLocalStorage } from '../hooks/localStorage';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
 import BottomBar from './BottomBar';
@@ -14,7 +15,7 @@ const useStyles = createUseStyles({
 const App = () => {
   const cls = useStyles();
   const [view, setView] = useState('all');
-  const [fiat, setFiat] = useState('eur');
+  const [fiat, setFiat] = useLocalStorage({ key: 'fiat', defaultValue: 'eur' });
   const [result, update] = useCurrencies({ fiat, interval: 10000 });
 
   const onFiatChange = async (fiat) => {
