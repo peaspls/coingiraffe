@@ -12,13 +12,13 @@ const useStyles = createUseStyles({
 
 const Price = (props) => {
   const cls = useStyles();
-  const { value, fiat, format, className } = props;
+  const { value, fiat, short, className } = props;
 
   return (
     <div className={className}>
       <div className={cls.price}>
         {fiat === 'eur' ? '€' : '$'}
-        {format === 'short' ? marketCap(value) : price(value)}      
+        {short ? marketCap(value) : price(value)}      
       </div>
     </div>
   );

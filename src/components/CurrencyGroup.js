@@ -52,7 +52,7 @@ const CurrencyGroup = (props) => {
           </div>
           <div className={cls.currencyRow}>
             <span className={cls.rank}>#{data.market_cap_rank}</span>
-            <Price format='short' value={data.market_cap} fiat={fiat} />
+            <Price short value={data.market_cap} fiat={fiat} />
           </div>
         </div>
       </div>
