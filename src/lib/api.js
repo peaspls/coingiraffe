@@ -1,8 +1,8 @@
 const baseApiURL = 'https://api.coingecko.com/api/v3';
 
-const getCurrencies = async () => {
+const getCurrencies = async (fiat) => {
   const params = new URLSearchParams({
-    vs_currency: 'eur',
+    vs_currency: fiat,
     order: 'market_cap_desc',
     per_page: 100,
     page: 1,

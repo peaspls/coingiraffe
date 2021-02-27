@@ -1,11 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { createUseStyles } from 'react-jss';
+import { useCurrencies } from '../hooks/currencies';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
 import BottomBar from './BottomBar';
-import { getCurrencies } from '../lib/api';
-import { useInterval } from '../lib/interval';
-import { useFavorites } from '../lib/favorites';
 
 const useStyles = createUseStyles({
   appBarSpace: {
@@ -15,41 +13,25 @@ const useStyles = createUseStyles({
 
 const App = () => {
   const cls = useStyles();
-  const [currencies, setCurrencies] = useState([]);
-  const [favorites, toggleFavorite] = useFavorites();
-  const [updatedTime, setUpdatedTime] = useState(new Date());
   const [view, setView] = useState('all');
-  const fiat = '€';
+  const [fiat, setFiat] = useState('eur');
+  const [result, update] = useCurrencies({ 
+    fiat,
+    interval: 10000
+  });
 
-  // Load currencies on mount and whenever updatedTime has changed
-  useEffect(() => {
-    (async () => {
-      const currencies = await getCurrencies();
-      setCurrencies(currencies);
-    })();    
-  }, [updatedTime]);
-
-  // Change updated time every 10s to trigger loading currencies
-  useInterval(() => {
-    setUpdatedTime(new Date());
-  }, 10000);
+  const onFiatChange = async (fiat) => {
+    setFiat(fiat)
+    update({ fiat });
+  };
 
   return (
     <Fragment>
-      <Header />
+      <Header fiat={fiat} onFiatChange={onFiatChange} />
       <main className={cls.appBarSpace}>
-        <CurrencyList 
-          currencies={currencies} 
-          fiat={fiat} 
-          favorites={favorites}
-          filter={{view}}
-          onToggleFavorite={toggleFavorite} 
-        />            
+        <CurrencyList fiat={result.fiat} currencies={result.currencies} filter={{view}} />            
       </main>      
-      <BottomBar 
-        view={view} 
-        onViewChange={setView} 
-      />
+      <BottomBar view={view} onViewChange={setView} />
     </Fragment>
   );
 };

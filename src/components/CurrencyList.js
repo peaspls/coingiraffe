@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
+import { TinyMediaQuery, SmallMediaQuery, MediumOrGreaterMediaQuery } from './MediaQuery';
+import { useFavorites } from '../hooks/favorites';
 import CurrencyGroup from './CurrencyGroup';
 import PriceGroup from './PriceGroup';
 import SparkLine from './SparkLine';
 import Price from './Price';
 import PriceChange from './PriceChange';
-import { TinyMedia, SmallMedia, MediumOrGreaterMedia } from '../lib/mediaQuery';
 
 const useStyles = createUseStyles({
   tinyList: {
@@ -48,32 +49,33 @@ const useStyles = createUseStyles({
 
 const CurrencyList = (props) => {
   const cls = useStyles();
+  const [favorites, toggleFavorite] = useFavorites();
   const [currencies, setCurrencies] = useState([]);
 
   useEffect(() => {
     if(props.filter.view === 'favorite') {
-      setCurrencies(props.currencies.filter(e => props.favorites[e.id] !== undefined));
+      setCurrencies(props.currencies.filter(item => favorites[item.id] !== undefined));
     } else {
       setCurrencies(props.currencies);
     }    
-  }, [props.filter]);
+  }, [props.filter, favorites]);
 
   return (
     <Fragment>
-      <TinyMedia>
+      <TinyMediaQuery>
         <div className={cls.tinyList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>24H</div>
           {currencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={props.favorites} onToggleFavorite={props.onToggleFavorite} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
               <PriceGroup className={cls.content} price={p.current_price} fiat={props.fiat} priceChange={p.price_change_percentage_24h_in_currency} />   
             </Fragment>
           ))}
         </div>
-      </TinyMedia>
+      </TinyMediaQuery>
       
-      <SmallMedia>
+      <SmallMediaQuery>
         <div className={cls.smallList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -81,16 +83,16 @@ const CurrencyList = (props) => {
           <div className={cls.heading}>7D</div>
           {currencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={props.favorites} onToggleFavorite={props.onToggleFavorite} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
               <Price className={cls.content} value={p.current_price} fiat={props.fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
             </Fragment>
           ))}
         </div>     
-      </SmallMedia>
+      </SmallMediaQuery>
 
-      <MediumOrGreaterMedia>
+      <MediumOrGreaterMediaQuery>
         <div className={cls.mediumList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -100,7 +102,7 @@ const CurrencyList = (props) => {
           <div className={cls.heading}>VOLUME(24H)</div>
           {currencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={props.favorites} onToggleFavorite={props.onToggleFavorite} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
               <Price className={cls.content} value={p.current_price} fiat={props.fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
@@ -109,7 +111,7 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>
-      </MediumOrGreaterMedia>
+      </MediumOrGreaterMediaQuery>
     </Fragment>
   );
 }

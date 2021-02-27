@@ -17,7 +17,7 @@ const Price = (props) => {
   return (
     <div className={className}>
       <div className={cls.price}>
-        {fiat}
+        {fiat === 'eur' ? '€' : '$'}
         {format === 'short' ? marketCap(value) : price(value)}      
       </div>
     </div>
