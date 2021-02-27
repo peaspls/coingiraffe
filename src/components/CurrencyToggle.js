@@ -1,25 +1,16 @@
 import React from 'react';
-import Toggle from './Toggle';
+import ShortSelector from './ShortSelector';
 
 const CurrencyToggle = (props) => {
   const { value, onChange, className } = props;
-
-  const onCurrencyChange = (event) => {
-    onChange(event.target.checked ? 'usd' : 'eur');
-  };
+  const options = ['eur', 'usd'];
 
   return (
     <div className={className}>
-      <Toggle 
-        offText="EUR"
-        onText="USD" 
-        offBackgroundColor="rgb(34,32,121)"
-        onBackgroundColor="rgb(74,121,32)"
-        offTextColor="rgb(255,255,255)"
-        onTextColor="rgb(255,255,255)"
-        nobColor="rgb(255,255,255)"
-        isOn={value === 'usd' ? true : false} 
-        onChange={onCurrencyChange}
+      <ShortSelector
+        options={options}
+        selected={value}
+        onChange={onChange}
       />
     </div>
   );
