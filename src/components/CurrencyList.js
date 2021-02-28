@@ -3,7 +3,6 @@ import { createUseStyles } from 'react-jss';
 import { TinyMediaQuery, SmallMediaQuery, MediumOrGreaterMediaQuery } from './MediaQuery';
 import { useFavorites } from '../hooks/favorites';
 import CurrencyGroup from './CurrencyGroup';
-import PriceGroup from './PriceGroup';
 import SparkLine from './SparkLine';
 import Price from './Price';
 import PriceChange from './PriceChange';
@@ -11,7 +10,7 @@ import PriceChange from './PriceChange';
 const useStyles = createUseStyles({
   tinyList: {
     display: 'grid',
-    gridTemplateColumns: 'minmax(140px, auto) min(150px)',
+    gridTemplateColumns: 'minmax(120px, auto) min(120px) min(80px)',
     alignItems: 'center'
   },
   smallList: {
@@ -44,7 +43,10 @@ const useStyles = createUseStyles({
   },
   contentFtCol: {
     justifyContent: 'flex-start'
-  }  
+  },
+  priceHighlight: {
+    fontWeight: 'bold'
+  }
 });
 
 const CurrencyList = (props) => {
@@ -65,11 +67,13 @@ const CurrencyList = (props) => {
       <TinyMediaQuery>
         <div className={cls.tinyList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
+          <div className={cls.heading}>PRICE</div>
           <div className={cls.heading}>24H</div>
           {currencies.map(p => (
             <Fragment key={p.id}>
               <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <PriceGroup className={cls.content} price={p.current_price} fiat={props.fiat} priceChange={p.price_change_percentage_24h_in_currency} />   
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />
             </Fragment>
           ))}
         </div>
@@ -84,8 +88,8 @@ const CurrencyList = (props) => {
           {currencies.map(p => (
             <Fragment key={p.id}>
               <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={cls.content} value={p.current_price} fiat={props.fiat} />
-              <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
             </Fragment>
           ))}
@@ -103,7 +107,7 @@ const CurrencyList = (props) => {
           {currencies.map(p => (
             <Fragment key={p.id}>
               <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={cls.content} value={p.current_price} fiat={props.fiat} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
               <SparkLine className={cls.content} data={p.sparkline_in_7d.price} width={135} height={50} />
