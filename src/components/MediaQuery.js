@@ -5,7 +5,7 @@ const TinyMediaQuery = ({ children }) => {
 }
 
 const SmallMediaQuery = ({ children }) => {
-  return useMediaQuery({ minWidth: 451, maxWidth: 750 }) ? children : null;
+  return useMediaQuery({ minWidth: 451, maxWidth: 600 }) ? children : null;
 }
 
 const SmallOrGreaterMediaQuery = ({ children }) => {
@@ -13,15 +13,19 @@ const SmallOrGreaterMediaQuery = ({ children }) => {
 }
 
 const MediumMediaQuery = ({ children }) => {
-  return useMediaQuery({ minWidth: 751, maxWidth: 1200 }) ? children : null;
+  return useMediaQuery({ minWidth: 601, maxWidth: 720 }) ? children : null;
 }
 
 const MediumOrGreaterMediaQuery = ({ children }) => {
-  return useMediaQuery({ minWidth: 751 }) ? children : null;
+  return useMediaQuery({ minWidth: 601 }) ? children : null;
 }
 
 const LargeMediaQuery = ({ children }) => {
-  return useMediaQuery({ minWidth: 1201 }) ? children : null;
+  return useMediaQuery({ minWidth: 721, maxWidth: 1200 }) ? children : null;  
+}
+
+const LargeOrGreaterMediaQuery = ({ children }) => {
+  return useMediaQuery({ minWidth: 721 }) ? children : null;
 }
 
 export { 
@@ -30,5 +34,6 @@ export {
   SmallOrGreaterMediaQuery, 
   MediumMediaQuery, 
   MediumOrGreaterMediaQuery, 
-  LargeMediaQuery 
+  LargeMediaQuery,
+  LargeOrGreaterMediaQuery,
 }

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
-import { TinyMediaQuery, SmallMediaQuery, MediumOrGreaterMediaQuery } from './MediaQuery';
+import { TinyMediaQuery, SmallMediaQuery, MediumMediaQuery, LargeOrGreaterMediaQuery } from './MediaQuery';
 import { useFavorites } from '../hooks/favorites';
 import CurrencyGroup from './CurrencyGroup';
 import SparkLine from './SparkLine';
@@ -10,17 +10,22 @@ import PriceChange from './PriceChange';
 const useStyles = createUseStyles({
   tinyList: {
     display: 'grid',
-    gridTemplateColumns: 'minmax(120px, auto) min(120px) min(80px)',
+    gridTemplateColumns: 'minmax(100px, auto) min(100px) min(70px)',
     alignItems: 'center'
   },
   smallList: {
     display: 'grid',
-    gridTemplateColumns: 'minmax(140px, auto) min(120px) min(80px) min(80px)',
+    gridTemplateColumns: 'minmax(100px, auto) min(100px) min(70px) min(70px)',
     alignItems: 'center'
   },
   mediumList: {
     display: 'grid',
-    gridTemplateColumns: 'minmax(140px, auto) min(120px) min(80px) min(80px) min(160px) min(150px)',
+    gridTemplateColumns: 'minmax(100px, auto) min(100px) min(70px) min(70px) min(160px)',
+    alignItems: 'center'
+  },
+  largeList: {
+    display: 'grid',
+    gridTemplateColumns: 'minmax(100px, auto) min(100px) min(70px) min(70px) min(160px) min(150px)',
     alignItems: 'center'
   },
   heading: {
@@ -96,8 +101,27 @@ const CurrencyList = (props) => {
         </div>     
       </SmallMediaQuery>
 
-      <MediumOrGreaterMediaQuery>
+      <MediumMediaQuery>
         <div className={cls.mediumList}>
+          <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
+          <div className={cls.heading}>PRICE</div>
+          <div className={cls.heading}>24H</div>
+          <div className={cls.heading}>7D</div>
+          <div className={cls.heading}>7D</div>
+          {currencies.map(p => (
+            <Fragment key={p.id}>
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
+              <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
+              <SparkLine className={cls.content} data={p.sparkline_in_7d.price} width={135} height={50} />              
+            </Fragment>
+          ))}
+        </div>
+      </MediumMediaQuery>
+
+      <LargeOrGreaterMediaQuery>
+        <div className={cls.largeList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
           <div className={cls.heading}>24H</div>
@@ -115,7 +139,7 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>
-      </MediumOrGreaterMediaQuery>
+      </LargeOrGreaterMediaQuery>
     </Fragment>
   );
 }
