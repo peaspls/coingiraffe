@@ -15,19 +15,27 @@ const useStyles = createUseStyles({
 const App = () => {
   const cls = useStyles();
   const [view, setView] = useState('all');
-  const [fiat, setFiat] = useLocalStorage({ key: 'fiat', defaultValue: 'eur' });
-  const [result, update] = useCurrencies({ fiat, interval: 10000 });
+  const [selectedFiat, setSelectedFiat] = useLocalStorage({ key: 'fiat', defaultValue: 'eur' });
+  const [result, updateCurrencies] = useCurrencies({ fiat: selectedFiat, interval: 10000 });
 
   const onFiatChange = async (fiat) => {
-    setFiat(fiat)
-    update({ fiat });
+    setSelectedFiat(fiat)
+    updateCurrencies({ fiat });
   };
 
   return (
     <Fragment>
-      <Header fiat={fiat} onFiatChange={onFiatChange} />
+      <Header 
+        fiatOptions={['eur', 'usd']} 
+        selectedFiat={selectedFiat} 
+        onFiatChange={onFiatChange}         
+      />
       <main className={cls.appBarSpace}>
-        <CurrencyList fiat={result.fiat} currencies={result.currencies} filter={{view}} />            
+        <CurrencyList 
+          fiat={result.fiat} 
+          currencies={result.currencies} 
+          filter={{view}} 
+        />
       </main>      
       <BottomBar view={view} onViewChange={setView} />
     </Fragment>

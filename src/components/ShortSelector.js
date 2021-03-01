@@ -5,18 +5,19 @@ const useStyles = createUseStyles({
   selector: {
     display: 'flex',
     alignItems: 'center',
-    padding: 3,
+    padding: 2,
     border: '1px solid #e4e2e2',
     background: 'whitesmoke',
     borderRadius: 5,
     userSelect: 'none'
   },
   option: {
+    color: 'rgb(121, 109, 109)',
     fontWeight: 'bold',
     outline: 0,
     border: 'none',
     background: 'transparent',
-    padding: 10,
+    padding: 7,
     cursor: 'pointer',
   },
   selected: {
@@ -27,23 +28,28 @@ const useStyles = createUseStyles({
 
 });
 
-const Toggle = (props) => {
+const ShortSelector = (props) => {
   const cls = useStyles(props);
-  const { options, selected, onChange } = props;
+  const { options, value, onChange, className } = props;
 
   return (
-    <div className={cls.selector}>
-      {
-        options.map(option => {
-          return (
-            <button key={option} className={`${cls.option} ${selected === option ? cls.selected : ''}`} onClick={() => onChange(option)}>
-              {option}
-            </button>
-          );
-        })
-      }
+    <div className={className}>
+      <div className={cls.selector}>
+        {
+          options.map(option => {
+            return (
+              <button 
+                key={option} 
+                className={`${cls.option} ${value === option ? cls.selected : ''}`} 
+                onClick={() => onChange(option)}>
+                {option}
+              </button>
+            );
+          })
+        }
+      </div>
     </div>
   );
 }
 
-export default Toggle;
+export default ShortSelector;

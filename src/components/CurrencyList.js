@@ -56,16 +56,17 @@ const useStyles = createUseStyles({
 
 const CurrencyList = (props) => {
   const cls = useStyles();
+  const { fiat, currencies, filter } = props;
   const [favorites, toggleFavorite] = useFavorites();
-  const [currencies, setCurrencies] = useState([]);
+  const [filteredCurrencies, setFilteredCurrencies] = useState([]);
 
   useEffect(() => {
-    if(props.filter.view === 'favorite') {
-      setCurrencies(props.currencies.filter(item => favorites[item.id] !== undefined));
+    if(filter.view === 'favorite') {
+      setFilteredCurrencies(currencies.filter(item => favorites[item.id] !== undefined));
     } else {
-      setCurrencies(props.currencies);
+      setFilteredCurrencies(currencies);
     }    
-  }, [props.filter, favorites]);
+  }, [filter, favorites]);
 
   return (
     <Fragment>
@@ -74,10 +75,10 @@ const CurrencyList = (props) => {
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
           <div className={cls.heading}>24H</div>
-          {currencies.map(p => (
+          {filteredCurrencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />
             </Fragment>
           ))}
@@ -90,10 +91,10 @@ const CurrencyList = (props) => {
           <div className={cls.heading}>PRICE</div>
           <div className={cls.heading}>24H</div>
           <div className={cls.heading}>7D</div>
-          {currencies.map(p => (
+          {filteredCurrencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
             </Fragment>
@@ -108,10 +109,10 @@ const CurrencyList = (props) => {
           <div className={cls.heading}>24H</div>
           <div className={cls.heading}>7D</div>
           <div className={cls.heading}>7D</div>
-          {currencies.map(p => (
+          {filteredCurrencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
               <SparkLine className={cls.content} data={p.sparkline_in_7d.price} width={135} height={50} />              
@@ -128,14 +129,14 @@ const CurrencyList = (props) => {
           <div className={cls.heading}>7D</div>
           <div className={cls.heading}>7D</div>
           <div className={cls.heading}>VOLUME(24H)</div>
-          {currencies.map(p => (
+          {filteredCurrencies.map(p => (
             <Fragment key={p.id}>
-              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={props.fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
-              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={props.fiat} />
+              <CurrencyGroup className={`${cls.content} ${cls.contentFtCol}`} data={p} fiat={fiat} favorites={favorites} onToggleFavorite={toggleFavorite} />
+              <Price className={`${cls.content} ${cls.priceHighlight}`} value={p.current_price} fiat={fiat} />
               <PriceChange className={cls.content} value={p.price_change_percentage_24h_in_currency} />            
               <PriceChange className={cls.content} value={p.price_change_percentage_7d_in_currency} />
               <SparkLine className={cls.content} data={p.sparkline_in_7d.price} width={135} height={50} />
-              <Price className={cls.content} value={p.total_volume} fiat={props.fiat} />
+              <Price className={cls.content} value={p.total_volume} fiat={fiat} />
             </Fragment>
           ))}
         </div>

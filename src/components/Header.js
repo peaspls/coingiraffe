@@ -1,6 +1,6 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss'
-import CurrencyToggle from './CurrencyToggle';
+import ShortSelector from './ShortSelector';
 import giraffe from '../assets/giraffe.svg';
 
 const useStyles = createUseStyles({
@@ -25,13 +25,18 @@ const useStyles = createUseStyles({
 
 const Header = (props) => {
   const cls = useStyles();
-  const { onFiatChange, fiat } = props;
+  const { fiatOptions, selectedFiat, onFiatChange } = props;
 
   return (
     <header className={cls.header}>
       <img className={cls.logo} src={giraffe} alt="Giraffe Logo" />
       <h1 className={cls.text}>Coingiraffe</h1>
-      <CurrencyToggle className={cls.toggle} value={fiat} onChange={onFiatChange} />
+      <ShortSelector 
+        className={cls.toggle} 
+        options={fiatOptions}
+        value={selectedFiat} 
+        onChange={onFiatChange} 
+      />
     </header>  
   );
 }
