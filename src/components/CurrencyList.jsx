@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
-import { TinyMediaQuery, SmallMediaQuery, MediumMediaQuery, LargeOrGreaterMediaQuery } from './MediaQuery';
+import MediaQuery from 'react-responsive';
 import { useFavorites } from '../hooks/favorites';
 import CurrencyGroup from './CurrencyGroup';
 import SparkLine from './SparkLine';
@@ -70,7 +70,7 @@ const CurrencyList = (props) => {
 
   return (
     <Fragment>
-      <TinyMediaQuery>
+      <MediaQuery maxWidth={450}>
         <div className={cls.tinyList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -83,9 +83,9 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>
-      </TinyMediaQuery>
+      </MediaQuery>
       
-      <SmallMediaQuery>
+      <MediaQuery minWidth={451} maxWidth={600}>
         <div className={cls.smallList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -100,9 +100,9 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>     
-      </SmallMediaQuery>
+      </MediaQuery>
 
-      <MediumMediaQuery>
+      <MediaQuery minWidth={601} maxWidth={720}>
         <div className={cls.mediumList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -119,9 +119,9 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>
-      </MediumMediaQuery>
+      </MediaQuery>
 
-      <LargeOrGreaterMediaQuery>
+      <MediaQuery minWidth={721}>
         <div className={cls.largeList}>
           <div className={`${cls.heading} ${cls.headingFtCol}`}>MARKET CAP</div>
           <div className={cls.heading}>PRICE</div>
@@ -140,7 +140,7 @@ const CurrencyList = (props) => {
             </Fragment>
           ))}
         </div>
-      </LargeOrGreaterMediaQuery>
+      </MediaQuery>
     </Fragment>
   );
 }
