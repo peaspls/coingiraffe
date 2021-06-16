@@ -11,14 +11,14 @@ npm i
 ```
 
 ## Run
-Sart up a local web server on http://localhost:1234/ and listen to file changes.
+Run a local web server listening on http://localhost:1234/ and listen for file changes.
 
 ```
 npm run dev
 ```
 
 ## Build for production
-This will build the frontend with the destination folder set to 'dist'.
+Build the frontend with the destination folder set to 'dist'.
 ```
 npm run build
 ```
