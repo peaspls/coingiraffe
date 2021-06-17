@@ -1,7 +1,6 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss'
 import ShortSelector from './ShortSelector';
-import giraffe from '/assets/giraffe.svg';
 
 const useStyles = createUseStyles({
   header: {
@@ -29,7 +28,7 @@ const Header = (props) => {
 
   return (
     <header className={cls.header}>
-      <img className={cls.logo} src={giraffe} alt="Giraffe Logo" />
+      <img className={cls.logo} src="/assets/giraffe.svg" alt="Giraffe Logo" />
       <h1 className={cls.text}>Coingiraffe</h1>
       <ShortSelector 
         className={cls.toggle} 

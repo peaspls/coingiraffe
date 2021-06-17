@@ -2,7 +2,6 @@
   "name": "coingiraffe",
   "version": "1.0.0",
   "description": "Read crypto prices using the Coingecko API.",
-  "type": "module",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build"

@@ -12,7 +12,7 @@ export default {
   ],
   optimize: {
     /* Example: Bundle your final build: */
-    // "bundle": true,
+    "bundle": true,
   },
   packageOptions: {
     /* ... */
