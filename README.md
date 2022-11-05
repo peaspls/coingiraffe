@@ -1,7 +1,5 @@
 # Coingiraffe
-Read crypto prices using the Coingecko API.
-
-Demo: https://coingiraffe.com
+Read crypto prices using the Coingecko API. Website can be found at https://coingiraffe.netlify.app/
 
 ## Install
 Install the packages.
