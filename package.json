@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Read crypto prices using the Coingecko API.",
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "snowpack build"
   },
   "repository": {

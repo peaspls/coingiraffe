@@ -3,20 +3,18 @@ Read crypto prices using the Coingecko API. Website can be found at https://coin
 
 ## Install
 Install the packages.
-
 ```
 npm i
 ```
 
 ## Run
-Run a local web server listening on http://localhost:1234/ and listen for file changes.
-
+Run a local web server listening
 ```
 npm run dev
 ```
 
 ## Build for production
-Build the frontend with the destination folder set to 'dist'.
+Build the frontend with the destination folder set to 'build\'.
 ```
 npm run build
 ```
