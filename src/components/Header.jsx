@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
   },
   toggle: {
     display: 'flex',
-    justifyContent: 'flex-end',    
+    justifyContent: 'flex-end',
     width: '100%'
   }
 });
@@ -28,15 +28,15 @@ const Header = (props) => {
 
   return (
     <header className={cls.header}>
-      <img className={cls.logo} src="/assets/giraffe.svg" alt="Giraffe Logo" />
+      <img className={cls.logo} src="/giraffe.svg" alt="Giraffe Logo" />
       <h1 className={cls.text}>Coingiraffe</h1>
-      <ShortSelector 
-        className={cls.toggle} 
+      <ShortSelector
+        className={cls.toggle}
         options={fiatOptions}
-        value={selectedFiat} 
-        onChange={onFiatChange} 
+        value={selectedFiat}
+        onChange={onFiatChange}
       />
-    </header>  
+    </header>
   );
 }
 

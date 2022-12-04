@@ -2,24 +2,33 @@
   "name": "coingiraffe",
   "version": "1.0.0",
   "description": "Read crypto prices using the Coingecko API.",
-  "scripts": {
-    "dev": "snowpack dev",
-    "build": "snowpack build"
-  },
+  "license": "ISC",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/therealice/coingiraffe.git"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "snowpack": "^3.5.8"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/material": "^5.10.16",
+    "@mui/styled-engine-sc": "^5.10.16",
     "d3": "^6.5.0",
     "numeral": "^2.0.6",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-jss": "^10.5.1",
-    "react-responsive": "^8.2.0"
+    "react-responsive": "^8.2.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^3.2.3"
   }
 }

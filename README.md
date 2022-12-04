@@ -14,12 +14,12 @@ npm run dev
 ```
 
 ## Build for production
-Build the frontend with the destination folder set to 'build\'.
+Build the frontend with the destination folder set to 'dist\'.
 ```
 npm run build
 ```
 
 If you want to serve your production build locally, run:
 ```
-npx servor build
+npm run preview
 ```
