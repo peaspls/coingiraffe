@@ -15,14 +15,18 @@ const useCurrencies = (props) => {
 
   useEffect(() => {
     (async () => {
-      const currencies = await getCurrencies(fiat);
-      setResult({ fiat, currencies });
-    })();    
+      try {
+        const currencies = await getCurrencies(fiat);
+        setResult({ fiat, currencies });
+      } catch (err) {
+        console.log("Error fetching data from server", err);
+      }
+    })();
   }, [requestTime]);
 
   useInterval(() => {
     const now = new Date();
-    if(now > new Date(requestTime.getTime() + requestInterval)) {
+    if (now > new Date(requestTime.getTime() + requestInterval)) {
       setRequestTime(now);
     }
   }, 1000);
