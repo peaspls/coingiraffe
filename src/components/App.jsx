@@ -1,19 +1,12 @@
 import React, { useState, Fragment } from 'react';
-import { createUseStyles } from 'react-jss';
-import { useCurrencies } from '../hooks/currencies';
-import { useLocalStorage } from '../hooks/localStorage';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
+import Box from '@mui/material/Box';
 import FixedBottomBar from './FixedBottomBar';
-
-const useStyles = createUseStyles({
-  appBarSpace: {
-    marginBottom: 50
-  }
-});
+import { useCurrencies } from '../hooks/currencies';
+import { useLocalStorage } from '../hooks/localStorage';
 
 const App = () => {
-  const cls = useStyles();
   const [view, setView] = useState('all');
   const [selectedFiat, setSelectedFiat] = useLocalStorage({ key: 'fiat', defaultValue: 'eur' });
   const [result, updateCurrencies] = useCurrencies({ fiat: selectedFiat, interval: 10000 });
@@ -30,14 +23,14 @@ const App = () => {
         selectedFiat={selectedFiat}
         onFiatChange={onFiatChange}
       />
-      <main className={cls.appBarSpace}>
+      <Box sx={{ pb: 7 }}>
         <CurrencyList
           fiat={result.fiat}
           currencies={result.currencies}
           filter={{ view }}
         />
-      </main>
-      <FixedBottomBar view={view} onViewChange={setView} />
+        <FixedBottomBar view={view} onViewChange={setView} />
+      </Box>
     </Fragment>
   );
 };
