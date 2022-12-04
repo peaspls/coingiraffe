@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { createUseStyles } from 'react-jss'
-import FavoriteIcon from './FavoriteIcon';
-import FavoriteBorderIcon from './FavoriteBorderIcon';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 const useStyles = createUseStyles({
   favorite: {
@@ -20,25 +20,9 @@ const Favorite = (props) => {
   const cls = useStyles();
 
   return (
-    <Fragment>
-    {
-      props.active
-      ? <button className={cls.favorite} onClick={(e) => props.onClick(e)}>
-          <FavoriteIcon 
-            fill="rgb(240, 133, 19)" 
-            width="18px"
-            height="18px"
-          />
-        </button>
-      : <button className={cls.favorite} onClick={(e) => props.onClick(e)}>
-          <FavoriteBorderIcon 
-            fill="rgb(135, 135, 135)" 
-            width="18px"
-            height="18px"
-          />
-        </button>
-    }        
-    </Fragment> 
+    <button className={cls.favorite} onClick={(e) => props.onClick(e)}>
+      {props.active ? <FavoriteRoundedIcon color="primary" /> : <FavoriteBorderRoundedIcon color="action" />}
+    </button>
   );
 }
 
