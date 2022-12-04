@@ -4,7 +4,7 @@ import { useCurrencies } from '../hooks/currencies';
 import { useLocalStorage } from '../hooks/localStorage';
 import Header from './Header';
 import CurrencyList from './CurrencyList';
-import BottomBar from './BottomBar';
+import FixedBottomBar from './FixedBottomBar';
 
 const useStyles = createUseStyles({
   appBarSpace: {
@@ -25,19 +25,19 @@ const App = () => {
 
   return (
     <Fragment>
-      <Header 
-        fiatOptions={['eur', 'usd']} 
-        selectedFiat={selectedFiat} 
-        onFiatChange={onFiatChange}         
+      <Header
+        fiatOptions={['eur', 'usd']}
+        selectedFiat={selectedFiat}
+        onFiatChange={onFiatChange}
       />
       <main className={cls.appBarSpace}>
-        <CurrencyList 
-          fiat={result.fiat} 
-          currencies={result.currencies} 
-          filter={{view}} 
+        <CurrencyList
+          fiat={result.fiat}
+          currencies={result.currencies}
+          filter={{ view }}
         />
-      </main>      
-      <BottomBar view={view} onViewChange={setView} />
+      </main>
+      <FixedBottomBar view={view} onViewChange={setView} />
     </Fragment>
   );
 };
