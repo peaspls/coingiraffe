@@ -14,7 +14,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
     "@mui/styled-engine-sc": "^5.10.16",
     "d3": "^6.5.0",
