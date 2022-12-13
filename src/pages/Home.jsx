@@ -1,19 +1,19 @@
-import React, { useState, Fragment } from 'react';
-import Header from './Header';
-import CurrencyList from './CurrencyList';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import FixedBottomBar from './FixedBottomBar';
 import { useCurrencies } from '../hooks/currencies';
 import { useLocalStorage } from '../hooks/localStorage';
+import Header from '../components/Header';
+import CurrencyList from '../components/CurrencyList';
+import FixedBottomBar from '../components/FixedBottomBar';
 
-const App = () => {
+export default function Home() {
   const fiatOptions = ['eur', 'usd'];
   const [view, setView] = useState('all');
   const [fiat, setFiat] = useLocalStorage({ key: 'fiat', defaultValue: 'usd' });
   const [currencies, updateCurrencies] = useCurrencies({ fiat });
 
   return (
-    <Fragment>
+    <>
       <Header
         fiatOptions={fiatOptions}
         selectedFiat={fiat}
@@ -28,10 +28,11 @@ const App = () => {
           currencies={currencies}
           filter={{ view }}
         />
-        <FixedBottomBar view={view} onViewChange={setView} />
+        <FixedBottomBar
+          view={view}
+          onViewChange={setView}
+        />
       </Box>
-    </Fragment>
+    </>
   );
 };
-
-export default App;
