@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useInterval } from './interval';
-import { fetchCurrencies } from '../api/currencies';
+import { fetchMarkets } from '../api/markets';
 
-const useCurrencies = ({ fiat = 'usd', interval }) => {
-  const [currencies, setCurrencies] = useState([]);
+const useMarkets = ({ fiat = 'usd', interval }) => {
+  const [markets, setMarkets] = useState([]);
   const [requestTime, setRequestTime] = useState(new Date());
 
-  const updateCurrencies = (options) => {
+  const updateMarkets = (options) => {
     if (options !== undefined) {
       if (options.fiat !== undefined) {
         fiat = options.fiat;
@@ -31,10 +31,10 @@ const useCurrencies = ({ fiat = 'usd', interval }) => {
           sparkline: true,
           price_change_percentage: '24h,7d'
         };
-        const currencies = await fetchCurrencies(options);
-        setCurrencies(currencies);
+        const markets = await fetchMarkets(options);
+        setMarkets(markets);
       } catch (err) {
-        console.log("Error fetching data from server", err);
+        console.log("Error fetching markets from server", err);
       }
     })();
   }, [requestTime]);
@@ -48,7 +48,7 @@ const useCurrencies = ({ fiat = 'usd', interval }) => {
     }
   }, 250);
 
-  return [currencies, updateCurrencies];
+  return [markets, updateMarkets];
 };
 
-export { useCurrencies };
+export { useMarkets };

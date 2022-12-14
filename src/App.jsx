@@ -5,12 +5,17 @@ import '@fontsource/roboto/700.css';
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './pages/Home';
+import MarketsPage from './pages/MarketsPage';
+import FavoritesPage from './pages/FavoritesPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <MarketsPage />,
+  },
+  {
+    path: "/favorites",
+    element: <FavoritesPage />,
   },
 ]);
 
