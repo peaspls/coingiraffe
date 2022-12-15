@@ -3,9 +3,6 @@ import Box from '@mui/material/Box';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/Header';
 import FixedBottomNavBar from '../components/FixedBottomNavBar';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 
 export default function DefaultLayout(props) {
   const { children, navigation, fiat, onFiatChange } = props;
@@ -23,18 +20,7 @@ export default function DefaultLayout(props) {
         <FixedBottomNavBar
           value={navigation}
           onChange={navigate}
-        >
-          <BottomNavigationAction
-            label="Markets"
-            value="/"
-            icon={<ShowChartRoundedIcon />}
-          />
-          <BottomNavigationAction
-            label="Favorites"
-            value="favorites"
-            icon={<FavoriteRoundedIcon />}
-          />
-        </FixedBottomNavBar>
+        />
       </Box>
     </>
   );
