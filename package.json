@@ -21,6 +21,7 @@
     "@mui/styled-engine-sc": "^5.10.16",
     "@tanstack/react-query": "^4.23.0",
     "@tanstack/react-query-devtools": "^4.23.0",
+    "axios": "^1.2.5",
     "d3": "^6.5.0",
     "embla-carousel-react": "^7.0.7",
     "numeral": "^2.0.6",
