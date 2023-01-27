@@ -6,7 +6,7 @@ export default memo(function Nav(props) {
   const { value, onChange, children } = props;
 
   return (
-    <Paper elevation={3}>
+    <Paper>
       <Tabs
         value={value}
         variant="fullWidth"

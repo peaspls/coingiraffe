@@ -17,9 +17,7 @@ export default function DefaultLayout() {
   return (
     <div className={cls.page}>
       <Header />
-      <>
-        <Outlet />
-      </>
+      <Outlet />
     </div>
   );
 };
