@@ -6,7 +6,6 @@ import Header from '../components/Header';
 const useStyles = createUseStyles({
   page: {
     display: 'flex',
-    flexWrap: 'wrap',
     flexDirection: 'column',
     height: '100vh',
   }
