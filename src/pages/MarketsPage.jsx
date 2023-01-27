@@ -3,22 +3,39 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import Tab from '@mui/material/Tab';
 import { useFavorites } from '../hooks/favorites';
-import { useMarkets } from '../hooks/markets';
+import { getMarkets } from '../api/markets';
 import Nav from '../components/Nav';
 import MarketsList from '../components/MarketsList';
 import Carousel from '../components/Carousel';
+import { useQuery } from '@tanstack/react-query'
 
 export default function MarketsPage() {
   const [tab, setTab] = useState(0);
-  const [markets, updateMarkets] = useMarkets({ fiat: 'usd' });
   const [favorites, toggleFavorite] = useFavorites();
+  const query = useQuery({
+    queryKey: ['markets'],
+    queryFn: async () => {
+      return getMarkets({
+        vs_currency: 'usd',
+        order: 'market_cap_desc',
+        per_page: 100,
+        page: 1,
+        sparkline: true,
+        price_change_percentage: '24h,7d'
+      });
+    }
+  });
 
   return (
     <>
-      <Carousel value={tab} onChange={setTab} options={{ loop: false, speed: 20 }}>
+      <Carousel
+        value={tab}
+        onChange={setTab}
+        options={{ loop: false, speed: 20 }}
+      >
         <MarketsList
           fiat={'usd'}
-          markets={markets}
+          markets={query.data}
           favorites={favorites}
           onToggleFavorite={toggleFavorite}
         />

@@ -15,7 +15,7 @@ export default function MarketsList(props) {
       <div>7D</div>
       <div>7D</div>
       <div>VOLUME(24H)</div>
-      {markets.map(p => (
+      {markets?.map(p => (
         <div key={p.id}>
           <CurrencyGroup
             data={p}

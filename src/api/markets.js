@@ -1,6 +1,6 @@
 const baseApiURL = 'https://api.coingecko.com/api/v3';
 
-const fetchMarkets = async (options) => {
+const getMarkets = async (options) => {
   const params = new URLSearchParams(options);
   const url = `${baseApiURL}/coins/markets?${params}`;
 
@@ -8,4 +8,4 @@ const fetchMarkets = async (options) => {
     .then(response => response.json())
 };
 
-export { fetchMarkets };
+export { getMarkets };
