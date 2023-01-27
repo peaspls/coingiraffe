@@ -13,11 +13,11 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
   },
   currencyRow: {
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center',
   },
   rank: {
     fontSize: 12,
-    lineHeight: '20px',
     marginRight: 5,
     color: '#796d6d'
   },
@@ -26,38 +26,41 @@ const useStyles = createUseStyles({
     height: 20,
     margin: '0 5px 0 0'
   },
-  symbol: {
-    textTransform: 'uppercase',
+  name: {
     fontSize: 16,
-    lineHeight: '20px',
     fontWeight: 'bold'
+  },
+  symbol: {
+    margin: '0 10px',
+    textTransform: 'uppercase',
+    fontSize: 12,
+    color: '#796d6d',
   }
 });
 
-const CurrencyGroup = (props) => {
+export default function Coin(props) {
   const cls = useStyles();
-  const { data, favorites, fiat, onToggleFavorite, className } = props;
+  const { id, name, image, symbol, marketCap, marketCapRank, favorites, fiat, onToggleFavorite, className } = props;
 
-  return (      
+  return (
     <div className={className}>
       <div className={cls.currencyGroup}>
         <Favorite
-          active={favorites[data.id] !== undefined} 
-          onClick={() => onToggleFavorite(data.id)}
+          active={favorites[id] !== undefined}
+          onClick={() => onToggleFavorite(id)}
         />
         <div className={cls.currencyCol}>
-          <div className={cls.currencyRow}>          
-            <img className={cls.image} src={data.image} />
-            <span className={cls.symbol}>{data.symbol}</span>
+          <div className={cls.currencyRow}>
+            <img className={cls.image} src={image} />
+            <span className={cls.name}>{name}</span>
+            <span className={cls.symbol}>{symbol}</span>
           </div>
           <div className={cls.currencyRow}>
-            <span className={cls.rank}>#{data.market_cap_rank}</span>
-            <Price short value={data.market_cap} fiat={fiat} />
+            <span className={cls.rank}>#{marketCapRank}</span>
+            <Price short value={marketCap} fiat={fiat} />
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default CurrencyGroup;

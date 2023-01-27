@@ -1,6 +1,5 @@
 import React from 'react';
-import CurrencyGroup from './CurrencyGroup';
-import SparkLine from './SparkLine';
+import Coin from './Coin';
 import Price from './Price';
 import PriceChange from './PriceChange';
 
@@ -9,16 +8,19 @@ export default function MarketsList(props) {
 
   return (
     <>
-      <div>MARKET CAP</div>
-      <div>PRICE</div>
-      <div>24H</div>
-      <div>7D</div>
-      <div>7D</div>
-      <div>VOLUME(24H)</div>
+      <div>Coin</div>
+      <div>Price</div>
+      <div>24h</div>
+      <div>7d</div>
       {markets?.map(p => (
         <div key={p.id}>
-          <CurrencyGroup
-            data={p}
+          <Coin
+            id={p.id}
+            name={p.name}
+            symbol={p.symbol}
+            image={p.image}
+            marketCap={p.market_cap}
+            marketCapRank={p.market_cap_rank}
             fiat={fiat}
             favorites={favorites}
             onToggleFavorite={onToggleFavorite}
@@ -26,12 +28,6 @@ export default function MarketsList(props) {
           <Price value={p.current_price} fiat={fiat} />
           <PriceChange value={p.price_change_percentage_24h_in_currency} />
           <PriceChange value={p.price_change_percentage_7d_in_currency} />
-          <SparkLine
-            data={p.sparkline_in_7d.price}
-            width={135}
-            height={50}
-          />
-          <Price value={p.total_volume} fiat={fiat} />
         </div>
       ))}
     </>
