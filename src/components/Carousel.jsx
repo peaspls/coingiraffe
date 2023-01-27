@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createUseStyles } from 'react-jss'
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -23,13 +23,10 @@ export default function Carousel(props) {
   const cls = useStyles();
   const { children, onChange, value, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
-  const [slide, setSlide] = useState(value);
 
   useEffect(() => {
     const onSelect = () => {
       const slide = emblaApi.selectedScrollSnap();
-      setSlide(slide);
-
       if (onChange !== undefined) {
         onChange(slide);
       }
@@ -47,11 +44,11 @@ export default function Carousel(props) {
   }, [emblaApi])
 
   useEffect(() => {
-    if (emblaApi && slide !== value) {
-      const jump = true
-      emblaApi.scrollTo(value, jump);
+    if (emblaApi) {
+      const selectedSlide = emblaApi.selectedScrollSnap();
+      value !== selectedSlide && emblaApi.scrollTo(value, true);
     }
-  }, [value]);
+  }, [value, emblaApi]);
 
   return (
     <div className={cls.embla} ref={emblaRef}>
