@@ -25,6 +25,7 @@ export default function MarketsPage() {
   const query = useQuery({
     queryKey: ['markets', marketQueryOptions],
     // refetchInterval: 10000, // 10s
+    keepPreviousData: true,
     queryFn: async () => getMarkets(marketQueryOptions)
   });
 
