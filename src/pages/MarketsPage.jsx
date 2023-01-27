@@ -12,18 +12,20 @@ import { useQuery } from '@tanstack/react-query'
 export default function MarketsPage() {
   const [tab, setTab] = useState(0);
   const [favorites, toggleFavorite] = useFavorites();
+
+  const marketQueryOptions = {
+    vs_currency: 'usd',
+    order: 'market_cap_desc',
+    per_page: 100,
+    page: 1,
+    sparkline: true,
+    price_change_percentage: '24h,7d'
+  };
+
   const query = useQuery({
-    queryKey: ['markets'],
-    queryFn: async () => {
-      return getMarkets({
-        vs_currency: 'usd',
-        order: 'market_cap_desc',
-        per_page: 100,
-        page: 1,
-        sparkline: true,
-        price_change_percentage: '24h,7d'
-      });
-    }
+    queryKey: ['markets', marketQueryOptions],
+    // refetchInterval: 10000, // 10s
+    queryFn: async () => getMarkets(marketQueryOptions)
   });
 
   return (
