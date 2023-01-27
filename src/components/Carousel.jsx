@@ -5,15 +5,16 @@ import useEmblaCarousel from 'embla-carousel-react';
 const useStyles = createUseStyles({
   embla: {
     overflow: 'hidden',
+    display: 'flex',
   },
   emblaContainer: {
     display: 'flex',
+    flexGrow: '1',
   },
   emblaSlide: {
     flex: '0 0 100%',
     minWidth: 0,
     overflowX: 'auto',
-    height: 'calc(100vh - 161px)'
   },
 });
 
