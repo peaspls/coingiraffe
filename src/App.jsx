@@ -4,26 +4,21 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from './layout/DefaultLayout';
 import MarketsPage from './pages/MarketsPage';
-import FavoritesPage from './pages/FavoritesPage';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MarketsPage />,
-  },
-  {
-    path: "/favorites",
-    element: <FavoritesPage />,
-  },
-]);
 
 export default function App() {
   return (
     <>
       <CssBaseline />
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route path="/" element={<MarketsPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

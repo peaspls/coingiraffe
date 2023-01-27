@@ -20,6 +20,7 @@
     "@mui/material": "^5.10.16",
     "@mui/styled-engine-sc": "^5.10.16",
     "d3": "^6.5.0",
+    "embla-carousel-react": "^7.0.7",
     "numeral": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

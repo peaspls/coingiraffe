@@ -1,26 +1,18 @@
 import React from 'react';
+import { Outlet } from "react-router-dom"
 import Box from '@mui/material/Box';
-import { useNavigate } from "react-router-dom";
 import Header from '../components/Header';
-import FixedBottomNavBar from '../components/FixedBottomNavBar';
 
-export default function DefaultLayout(props) {
-  const { children, navigation, fiat, onFiatChange } = props;
-  const navigate = useNavigate();
-
+export default function DefaultLayout() {
   return (
     <>
       <Header
         fiatOptions={['eur', 'usd']}
-        selectedFiat={fiat}
-        onFiatChange={onFiatChange}
+        selectedFiat={'usd'}
+        onFiatChange={console.log}
       />
       <Box sx={{ pb: 7 }}>
-        {children}
-        <FixedBottomNavBar
-          value={navigation}
-          onChange={navigate}
-        />
+        <Outlet />
       </Box>
     </>
   );
