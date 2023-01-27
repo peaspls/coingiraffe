@@ -6,6 +6,7 @@ const useStyles = createUseStyles({
   embla: {
     overflow: 'hidden',
     display: 'flex',
+    flexGrow: '1',
   },
   emblaContainer: {
     display: 'flex',
