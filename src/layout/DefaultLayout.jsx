@@ -16,11 +16,7 @@ export default function DefaultLayout() {
 
   return (
     <div className={cls.page}>
-      <Header
-        fiatOptions={['eur', 'usd']}
-        selectedFiat={'usd'}
-        onFiatChange={console.log}
-      />
+      <Header />
       <>
         <Outlet />
       </>
