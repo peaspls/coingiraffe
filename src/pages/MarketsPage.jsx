@@ -34,7 +34,7 @@ export default function MarketsPage() {
       <Carousel
         value={tab}
         onChange={setTab}
-        options={{ loop: false, speed: 20 }}
+        options={{ draggable: false, loop: false, speed: 20 }}
       >
         <MarketsList
           fiat={'usd'}
