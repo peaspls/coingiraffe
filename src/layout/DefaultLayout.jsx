@@ -1,19 +1,30 @@
 import React from 'react';
+import { createUseStyles } from 'react-jss'
 import { Outlet } from "react-router-dom"
-import Box from '@mui/material/Box';
 import Header from '../components/Header';
 
+const useStyles = createUseStyles({
+  page: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    height: '100vh',
+  }
+});
+
 export default function DefaultLayout() {
+  const cls = useStyles();
+
   return (
-    <>
+    <div className={cls.page}>
       <Header
         fiatOptions={['eur', 'usd']}
         selectedFiat={'usd'}
         onFiatChange={console.log}
       />
-      <Box sx={{ pb: 7 }}>
+      <>
         <Outlet />
-      </Box>
-    </>
+      </>
+    </div>
   );
 };
