@@ -4,8 +4,7 @@ import { price, marketCap } from '../lib/formatter';
 
 const useStyles = createUseStyles({
   price: {
-    fontSize: 14,
-    lineHeight: '20px',
+    fontSize: '0.9rem',
     fontWeight: 'normal',
   }
 });
@@ -17,7 +16,7 @@ const Price = (props) => {
   return (
     <div className={`${cls.price} ${className}`}>
       {fiat === 'eur' ? '€' : '$'}
-      {short ? marketCap(value) : price(value)}      
+      {short ? marketCap(value) : price(value)}
     </div>
   );
 }

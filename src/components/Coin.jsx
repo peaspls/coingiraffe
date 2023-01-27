@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     alignItems: 'center',
   },
   rank: {
-    fontSize: 12,
+    fontSize: '0.9rem',
     marginRight: 5,
     color: '#796d6d'
   },
@@ -27,13 +27,17 @@ const useStyles = createUseStyles({
     margin: '0 5px 0 0'
   },
   name: {
-    fontSize: 16,
-    fontWeight: 'bold'
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    maxWidth: '130px',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
   },
   symbol: {
-    margin: '0 10px',
+    margin: '0 5px',
     textTransform: 'uppercase',
-    fontSize: 12,
+    fontSize: '0.9rem',
     color: '#796d6d',
   }
 });

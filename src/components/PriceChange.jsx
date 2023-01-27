@@ -4,7 +4,7 @@ import { priceChange } from '../lib/formatter';
 
 const useStyles = createUseStyles({
   change: {
-    fontSize: 14,
+    fontSize: '0.9rem',
     lineHeight: '20px'
   },
   pos: {
@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   },
   neg: {
     color: 'rgb(204, 19, 19)'
-  }  
+  }
 });
 
 const PriceChange = (props) => {

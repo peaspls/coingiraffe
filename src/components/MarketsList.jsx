@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { createUseStyles } from 'react-jss';
 import Coin from './Coin';
 import Price from './Price';
 import PriceChange from './PriceChange';
@@ -21,7 +22,6 @@ export default function MarketsList(props) {
             <TableCell>Coin</TableCell>
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">24h</TableCell>
-            <TableCell align="right">7d</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -39,13 +39,20 @@ export default function MarketsList(props) {
   );
 }
 
+const useStyles = createUseStyles({
+  cell: {
+    maxWidth: '250px',
+  },
+});
+
 function Row(props) {
+  const cls = useStyles();
   const { row, fiat, favorites, onToggleFavorite } = props;
 
   return (
     <>
       <TableRow>
-        <TableCell component="th" scope="row">
+        <TableCell className={cls.cell}>
           <Coin
             id={row.id}
             name={row.name}
@@ -63,9 +70,6 @@ function Row(props) {
         </TableCell>
         <TableCell align="right">
           <PriceChange value={row.price_change_percentage_24h_in_currency} />
-        </TableCell>
-        <TableCell align="right">
-          <PriceChange value={row.price_change_percentage_7d_in_currency} />
         </TableCell>
       </TableRow>
     </>
