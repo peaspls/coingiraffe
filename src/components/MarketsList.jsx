@@ -5,7 +5,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { createUseStyles } from 'react-jss';
 import Coin from './Coin';
 import Price from './Price';
@@ -15,7 +14,7 @@ export default function MarketsList(props) {
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table>
         <TableHead>
           <TableRow>
@@ -39,20 +38,13 @@ export default function MarketsList(props) {
   );
 }
 
-const useStyles = createUseStyles({
-  cell: {
-    maxWidth: '250px',
-  },
-});
-
 function Row(props) {
-  const cls = useStyles();
   const { row, fiat, favorites, onToggleFavorite } = props;
 
   return (
     <>
       <TableRow>
-        <TableCell className={cls.cell}>
+        <TableCell>
           <Coin
             symbol={row.symbol}
             image={row.image}

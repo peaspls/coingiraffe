@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import Tab from '@mui/material/Tab';
+import { useQuery } from '@tanstack/react-query'
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
 import Nav from '../components/Nav';
 import MarketsList from '../components/MarketsList';
 import Carousel from '../components/Carousel';
-import { useQuery } from '@tanstack/react-query'
 
 export default function MarketsPage() {
   const [tab, setTab] = useState(0);
@@ -36,13 +36,17 @@ export default function MarketsPage() {
         onChange={setTab}
         options={{ draggable: false, loop: false, speed: 20 }}
       >
-        <MarketsList
-          fiat={'usd'}
-          markets={query.data}
-          favorites={favorites}
-          onToggleFavorite={toggleFavorite}
-        />
-        <div>Favorites</div>
+        <>
+          <MarketsList
+            fiat={'usd'}
+            markets={query.data}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
+        </>
+        <>
+          <div>Favorites</div>
+        </>
       </Carousel>
       <Nav value={tab} onChange={setTab}>
         <Tab label="Markets" value={0} icon={<ShowChartRoundedIcon />} />

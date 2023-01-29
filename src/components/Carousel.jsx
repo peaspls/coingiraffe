@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
   emblaContainer: {
     display: 'flex',
     flexGrow: '1',
+    width: '100vw',
   },
   emblaSlide: {
     flex: '0 0 100%',
