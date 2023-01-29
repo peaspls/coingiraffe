@@ -54,15 +54,11 @@ function Row(props) {
       <TableRow>
         <TableCell className={cls.cell}>
           <Coin
-            id={row.id}
-            name={row.name}
             symbol={row.symbol}
             image={row.image}
             marketCap={row.market_cap}
             marketCapRank={row.market_cap_rank}
             fiat={fiat}
-            favorites={favorites}
-            onToggleFavorite={onToggleFavorite}
           />
         </TableCell>
         <TableCell align="right">

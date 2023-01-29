@@ -1,6 +1,5 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
-import Favorite from './Favorite';
 import Price from './Price';
 
 const useStyles = createUseStyles({
@@ -26,42 +25,33 @@ const useStyles = createUseStyles({
     height: 20,
     margin: '0 5px 0 0'
   },
-  name: {
+  symbol: {
     fontSize: '1.1rem',
     fontWeight: 'bold',
-    overflow: 'hidden',
-    maxWidth: '130px',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-  },
-  symbol: {
-    margin: '0 5px',
+    marginRight: '5px',
     textTransform: 'uppercase',
     fontSize: '0.9rem',
-    color: '#796d6d',
-  }
+  },
+  marketCap: {
+    marginRight: '5px',
+  },
 });
 
 export default function Coin(props) {
   const cls = useStyles();
-  const { id, name, image, symbol, marketCap, marketCapRank, favorites, fiat, onToggleFavorite, className } = props;
+  const { image, symbol, marketCap, marketCapRank, fiat, className } = props;
 
   return (
     <div className={className}>
       <div className={cls.currencyGroup}>
-        <Favorite
-          active={favorites[id] !== undefined}
-          onClick={() => onToggleFavorite(id)}
-        />
         <div className={cls.currencyCol}>
           <div className={cls.currencyRow}>
             <img className={cls.image} src={image} />
-            <span className={cls.name}>{name}</span>
             <span className={cls.symbol}>{symbol}</span>
           </div>
           <div className={cls.currencyRow}>
             <span className={cls.rank}>#{marketCapRank}</span>
-            <Price short value={marketCap} fiat={fiat} />
+            <Price className={cls.marketCap} short value={marketCap} fiat={fiat} />
           </div>
         </div>
       </div>
