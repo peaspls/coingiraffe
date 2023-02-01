@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
+import Typography from '@mui/material/Typography';
 import Tab from '@mui/material/Tab';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import { useQuery } from '@tanstack/react-query'
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
@@ -38,13 +42,23 @@ export default function MarketsPage() {
         onChange={setTab}
         options={{ draggable: false, loop: false, speed: 20 }}
       >
-        <MarketsList
-          fiat={'usd'}
-          markets={query.data}
-          favorites={favorites}
-          onToggleFavorite={toggleFavorite}
-        />
-        <div>Favorites</div>
+        <Container>
+          <Box>
+            <MarketsList
+              fiat={'usd'}
+              markets={query.data}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
+            />
+          </Box>
+        </Container>
+        <Container>
+          <Box>
+            <Typography variant="h6" component="div">
+              Favorites
+            </Typography>
+          </Box>
+        </Container>
       </Carousel>
       <Nav value={tab} onChange={setTab}>
         <Tab label="Markets" value={0} icon={<ShowChartRoundedIcon />} />
