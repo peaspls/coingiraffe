@@ -26,7 +26,6 @@ const useStyles = createUseStyles({
     margin: '0 5px 0 0'
   },
   symbol: {
-    fontSize: '1.1rem',
     fontWeight: 'bold',
     marginRight: '5px',
     textTransform: 'uppercase',

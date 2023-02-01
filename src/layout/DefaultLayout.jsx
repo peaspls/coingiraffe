@@ -1,7 +1,6 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss'
 import { Outlet } from "react-router-dom"
-import Header from '../components/Header';
 
 const useStyles = createUseStyles({
   page: {
@@ -16,7 +15,6 @@ export default function DefaultLayout() {
 
   return (
     <div className={cls.page}>
-      <Header />
       <Outlet />
     </div>
   );
