@@ -44,7 +44,7 @@ function Row(props) {
   return (
     <>
       <TableRow>
-        <TableCell>
+        <TableCell size='small'>
           <Coin
             symbol={row.symbol}
             image={row.image}
