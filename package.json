@@ -9,10 +9,9 @@
     "url": "git+https://github.com/therealice/coingiraffe.git"
   },
   "scripts": {
-    "dev": "vite",
-    "expose": "vite --host",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "dependencies": {
     "@emotion/styled": "^11.10.5",
