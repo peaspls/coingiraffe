@@ -8,10 +8,10 @@ const useStyles = createUseStyles({
     lineHeight: '20px'
   },
   pos: {
-    color: 'rgb(4, 138, 9)'
+    color: 'rgba(106, 175, 2, 1)'
   },
   neg: {
-    color: 'rgb(204, 19, 19)'
+    color: 'rgba(205, 42, 23, 1)'
   }
 });
 
