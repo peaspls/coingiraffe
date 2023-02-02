@@ -9,30 +9,43 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from './layout/DefaultLayout';
 import MarketsPage from './pages/MarketsPage';
+import { DarkModeContext } from './context/DarkModeContext';
 
 export default function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [isDarkMode, setIsDarkMode] = React.useState(prefersDarkMode);
+
+  const darkMode = React.useMemo(
+    () => ({
+      toggle: () => {
+        setIsDarkMode((prevMode) => !prevMode);
+      },
+    }),
+    [],
+  );
 
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: isDarkMode ? 'dark' : 'light',
         },
       }),
-    [prefersDarkMode],
+    [isDarkMode],
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />}>
-            <Route path="/" element={<MarketsPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <DarkModeContext.Provider value={darkMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<MarketsPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </DarkModeContext.Provider>
   );
 };
