@@ -5,8 +5,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { DarkModeContext } from '../context/DarkModeContext';
 
 const useStyles = createUseStyles({
@@ -28,7 +28,7 @@ export default function Header() {
           Coingiraffe
         </Typography>
         <IconButton onClick={darkMode.toggle} color="inherit">
-          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
       </Toolbar>
     </AppBar>
