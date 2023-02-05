@@ -1,31 +1,19 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import Typography from '@mui/material/Typography';
 import { priceChange } from '../lib/formatter';
 
-const useStyles = createUseStyles({
-  change: {
-    fontSize: '0.9rem',
-    lineHeight: '20px'
-  },
-  pos: {
-    color: 'rgba(106, 175, 2, 1)'
-  },
-  neg: {
-    color: 'rgba(205, 42, 23, 1)'
-  }
-});
-
-const PriceChange = (props) => {
-  const cls = useStyles();
+export default function PriceChange(props) {
   const { value, className } = props;
 
   return (
     <div className={className}>
-      <div className={`${cls.change} ${value > 0 ? cls.pos : cls.neg}`}>
+      <Typography
+        style={{ fontSize: '0.9rem' }}
+        component="div"
+        color={`${value > 0 ? "success.main" : "error.main"}`}
+      >
         {priceChange(value)}
-      </div>
+      </Typography>
     </div>
   );
 }
-
-export default PriceChange;
