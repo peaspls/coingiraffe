@@ -10,8 +10,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from './layout/DefaultLayout';
 import MarketsPage from './pages/MarketsPage';
 import { DarkModeContext } from './context/DarkModeContext';
+import { registerSW } from 'virtual:pwa-register'
 
 export default function App() {
+  registerSW({ immediate: true })
+
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [isDarkMode, setIsDarkMode] = React.useState(prefersDarkMode);
 
