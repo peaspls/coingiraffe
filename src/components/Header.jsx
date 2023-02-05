@@ -27,7 +27,7 @@ export default function Header() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Coingiraffe
         </Typography>
-        <IconButton onClick={darkMode.toggle} color="inherit">
+        <IconButton onClick={darkMode.toggle} color="inherit" aria-label="Toggle Darkmode">
           {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
       </Toolbar>

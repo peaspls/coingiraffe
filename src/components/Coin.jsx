@@ -20,9 +20,8 @@ const useStyles = createUseStyles({
     marginRight: 5,
     color: '#796d6d'
   },
-  image: {
+  logo: {
     width: 20,
-    height: 20,
     margin: '0 5px 0 0'
   },
   symbol: {
@@ -45,7 +44,7 @@ export default function Coin(props) {
       <div className={cls.currencyGroup}>
         <div className={cls.currencyCol}>
           <div className={cls.currencyRow}>
-            <img className={cls.image} src={image} />
+            <img className={cls.logo} src={image} alt={`${symbol} Logo`} />
             <span className={cls.symbol}>{symbol}</span>
           </div>
           <div className={cls.currencyRow}>
