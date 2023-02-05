@@ -27,11 +27,24 @@ export default function App() {
     [],
   );
 
+  // Colors: https://m2.material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=bc804e&secondary.color=e0d5c1&secondary.text.color=3a3a3a&primary.text.color=f2f2f2
   const theme = React.useMemo(
     () =>
       createTheme({
         palette: {
           mode: isDarkMode ? 'dark' : 'light',
+          primary: {
+            light: '#f1b07b',
+            main: '#bc804e',
+            dark: '#895324',
+            contrastText: '#f2f2f2',
+          },
+          secondary: {
+            light: '#fffff4',
+            main: '#e0d5c1',
+            dark: '#aea491',
+            contrastText: '#3a3a3a',
+          },
         },
       }),
     [isDarkMode],
