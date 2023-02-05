@@ -24,11 +24,16 @@ const useStyles = createUseStyles({
     width: 20,
     margin: '0 5px 0 0'
   },
-  symbol: {
+  title: {
     fontWeight: 'bold',
+    marginRight: '5px',
+    fontSize: '0.9rem',
+  },
+  subtitle: {
     marginRight: '5px',
     textTransform: 'uppercase',
     fontSize: '0.9rem',
+    color: '#796d6d'
   },
   marketCap: {
     marginRight: '5px',
@@ -37,7 +42,7 @@ const useStyles = createUseStyles({
 
 export default function Coin(props) {
   const cls = useStyles();
-  const { image, symbol, marketCap, marketCapRank, fiat, className } = props;
+  const { name, image, symbol, marketCap, marketCapRank, fiat, className } = props;
 
   return (
     <div className={className}>
@@ -45,11 +50,11 @@ export default function Coin(props) {
         <div className={cls.currencyCol}>
           <div className={cls.currencyRow}>
             <img className={cls.logo} src={image} alt={`${symbol} Logo`} />
-            <span className={cls.symbol}>{symbol}</span>
+            <span className={cls.title}>{name}</span>
           </div>
           <div className={cls.currencyRow}>
             <span className={cls.rank}>#{marketCapRank}</span>
-            <Price className={cls.marketCap} short value={marketCap} fiat={fiat} />
+            <span className={cls.subtitle}>{symbol}</span>
           </div>
         </div>
       </div>

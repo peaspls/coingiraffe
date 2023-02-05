@@ -46,6 +46,7 @@ function Row(props) {
       <TableRow>
         <TableCell size='small'>
           <Coin
+            name={row.name}
             symbol={row.symbol}
             image={row.image}
             marketCap={row.market_cap}

@@ -42,23 +42,19 @@ export default function MarketsPage() {
         onChange={setTab}
         options={{ draggable: false, loop: false, speed: 20 }}
       >
-        <Container>
-          <Box>
-            <MarketsList
-              fiat={'usd'}
-              markets={query.data}
-              favorites={favorites}
-              onToggleFavorite={toggleFavorite}
-            />
-          </Box>
-        </Container>
-        <Container>
-          <Box>
-            <Typography variant="h6" component="div">
-              Favorites
-            </Typography>
-          </Box>
-        </Container>
+        <Box>
+          <MarketsList
+            fiat={'usd'}
+            markets={query.data}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
+        </Box>
+        <Box>
+          <Typography variant="h6" component="div">
+            Favorites
+          </Typography>
+        </Box>
       </Carousel>
       <Nav value={tab} onChange={setTab}>
         <Tab label="Markets" value={0} icon={<ShowChartRoundedIcon />} />
