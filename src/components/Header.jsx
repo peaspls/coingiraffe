@@ -2,12 +2,12 @@ import React from 'react';
 import { createUseStyles } from 'react-jss'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import { DarkModeContext } from '../context/DarkModeContext';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import DarkModeSwitch from './DarkModeSwitch';
 
 const useStyles = createUseStyles({
   logo: {
@@ -27,9 +27,15 @@ export default function Header() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Coingiraffe
         </Typography>
-        <IconButton onClick={darkMode.toggle} color="inherit" aria-label="Toggle Darkmode">
-          {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-        </IconButton>
+        <FormGroup>
+          <FormControlLabel sx={{ marginRight: 0 }} control={
+            <DarkModeSwitch
+              sx={{ m: 1 }}
+              checked={theme.palette.mode === 'dark'}
+              onChange={darkMode.toggle}
+            />}
+          />
+        </FormGroup>
       </Toolbar>
     </AppBar>
   );
