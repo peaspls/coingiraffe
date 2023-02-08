@@ -2,15 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { createUseStyles } from 'react-jss';
 import { select, min, max, area, scaleLinear } from "d3";
 
-const useStyles = createUseStyles({
-  sparkline: {
-    fill: '#ecf5fd',
-    stroke: '#2d79c5',
-    strokeWidth: 1,
-    margin: '0 10px'
-  }
-});
-
 const makeChart = ({ data, width, height, element, className }) => {
   const margin = 2;
   const svg = select(element)
@@ -22,7 +13,7 @@ const makeChart = ({ data, width, height, element, className }) => {
     .attr("transform", "translate(" + (-margin) + ",0)");
 
   const x = scaleLinear().domain([0, data.length]).range([0, width]);
-  const y = scaleLinear().domain([min(data), max(data)]).range([height, 0]);    
+  const y = scaleLinear().domain([min(data), max(data)]).range([height, 0]);
 
   svg.append('path')
     .datum(data)
@@ -33,7 +24,16 @@ const makeChart = ({ data, width, height, element, className }) => {
     );
 };
 
-const SparkLine = (props) => {
+const useStyles = createUseStyles({
+  sparkline: {
+    fill: '#ecf5fd',
+    stroke: '#2d79c5',
+    strokeWidth: 1,
+    margin: '0 10px'
+  }
+});
+
+export default function SparkLine(props) {
   const cls = useStyles();
   const ref = useRef(null);
   const { data, width, height, className } = props;
@@ -47,10 +47,8 @@ const SparkLine = (props) => {
       className: cls.sparkline
     });
   }, [ref]);
-  
+
   return (
     <div className={className} ref={ref}></div>
   );
 };
-
-export default SparkLine;

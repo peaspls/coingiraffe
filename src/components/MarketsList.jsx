@@ -1,15 +1,28 @@
 import React from 'react';
+import { createUseStyles } from 'react-jss';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Coin from './Coin';
-import Price from './Price';
-import PriceChange from './PriceChange';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import { price, priceChange } from '../lib/formatter';
+
+const useStyles = createUseStyles({
+  coin: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 20,
+    marginRight: 5
+  },
+});
 
 export default function MarketsList(props) {
+  const cls = useStyles();
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
@@ -25,38 +38,34 @@ export default function MarketsList(props) {
         </TableHead>
         <TableBody>
           {markets?.map((row) => (
-            <Row
-              key={row.id}
-              row={row}
-              fiat={fiat}
-              favorites={favorites}
-              onToggleFavorite={onToggleFavorite} />
+            <TableRow key={row.id}>
+              <TableCell>
+                {row.market_cap_rank}
+              </TableCell>
+              <TableCell>
+                <Box className={cls.coin}>
+                  <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
+                  <Typography sx={{ fontSize: '0.875rem', fontWeight: '700' }}>
+                    {row.name}
+                  </Typography>
+                </Box>
+              </TableCell>
+              <TableCell align="right">
+                <Typography sx={{ fontSize: '0.875rem' }}>
+                  {fiat === 'eur' ? '€' : '$'}{price(row.current_price)}
+                </Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Typography sx={{ fontSize: '0.875rem' }}
+                  color={`${row.price_change_percentage_24h_in_currency > 0 ? "success.main" : "error.main"}`}
+                >
+                  {priceChange(row.price_change_percentage_24h_in_currency)}
+                </Typography>
+              </TableCell>
+            </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-  );
-}
-
-function Row(props) {
-  const { row, fiat, favorites, onToggleFavorite } = props;
-
-  return (
-    <>
-      <TableRow>
-        <TableCell>
-          {row.market_cap_rank}
-        </TableCell>
-        <TableCell>
-          <Coin name={row.name} image={row.image} symbol={row.symbol} />
-        </TableCell>
-        <TableCell align="right">
-          <Price value={row.current_price} fiat={fiat} />
-        </TableCell>
-        <TableCell align="right">
-          <PriceChange value={row.price_change_percentage_24h_in_currency} />
-        </TableCell>
-      </TableRow>
-    </>
   );
 }

@@ -5,7 +5,7 @@ import Tabs from '@mui/material/Tabs';
 
 const useStyles = createUseStyles({
   space: {
-    marginTop: '72px',
+    marginTop: 72,
   },
   fixed: {
     width: "100%",
