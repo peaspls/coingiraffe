@@ -5,7 +5,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { createUseStyles } from 'react-jss';
 import Coin from './Coin';
 import Price from './Price';
 import PriceChange from './PriceChange';
@@ -15,9 +14,10 @@ export default function MarketsList(props) {
 
   return (
     <TableContainer>
-      <Table>
+      <Table size="medium">
         <TableHead>
           <TableRow>
+            <TableCell size='medium' >#</TableCell>
             <TableCell>Coin</TableCell>
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">24h</TableCell>
@@ -44,15 +44,11 @@ function Row(props) {
   return (
     <>
       <TableRow>
-        <TableCell size='small'>
-          <Coin
-            name={row.name}
-            symbol={row.symbol}
-            image={row.image}
-            marketCap={row.market_cap}
-            marketCapRank={row.market_cap_rank}
-            fiat={fiat}
-          />
+        <TableCell>
+          {row.market_cap_rank}
+        </TableCell>
+        <TableCell>
+          <Coin name={row.name} image={row.image} symbol={row.symbol} />
         </TableCell>
         <TableCell align="right">
           <Price value={row.current_price} fiat={fiat} />

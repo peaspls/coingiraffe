@@ -3,9 +3,7 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import ShowChartRoundedIcon from '@mui/icons-material/ShowChartRounded';
 import Typography from '@mui/material/Typography';
 import Tab from '@mui/material/Tab';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { useQuery } from '@tanstack/react-query'
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';

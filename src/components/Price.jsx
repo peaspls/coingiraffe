@@ -4,8 +4,8 @@ import { price, marketCap } from '../lib/formatter';
 
 const useStyles = createUseStyles({
   price: {
-    fontSize: '0.9rem',
-    fontWeight: 'normal',
+    fontSize: '0.875rem',
+    fontWeight: '400',
   }
 });
 

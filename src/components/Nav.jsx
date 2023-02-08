@@ -25,7 +25,6 @@ export default memo(function Nav(props) {
         <Tabs
           value={value}
           variant="fullWidth"
-          indicatorColor="primary"
           textColor="primary"
           onChange={(event, newValue) => {
             onChange(newValue);

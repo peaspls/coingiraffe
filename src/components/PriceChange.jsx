@@ -8,7 +8,7 @@ export default function PriceChange(props) {
   return (
     <div className={className}>
       <Typography
-        style={{ fontSize: '0.9rem' }}
+        style={{ fontSize: '0.875rem', fontWeight: '400' }}
         component="div"
         color={`${value > 0 ? "success.main" : "error.main"}`}
       >
