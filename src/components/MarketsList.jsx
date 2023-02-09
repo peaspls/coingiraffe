@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import { price, priceChange } from '../lib/formatter';
 
 const useStyles = createUseStyles({
@@ -26,46 +27,54 @@ export default function MarketsList(props) {
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
-    <TableContainer>
+    <StyledTableContainer>
       <Table size="medium">
         <TableHead>
           <TableRow>
-            <TableCell size='medium' >#</TableCell>
-            <TableCell>Coin</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">24h</TableCell>
+            <StyledTableCell size='medium' >#</StyledTableCell>
+            <StyledTableCell>Coin</StyledTableCell>
+            <StyledTableCell align="right">Price</StyledTableCell>
+            <StyledTableCell align="right">24h</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {markets?.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>
+              <StyledTableCell>
                 {row.market_cap_rank}
-              </TableCell>
-              <TableCell>
+              </StyledTableCell>
+              <StyledTableCell>
                 <Box className={cls.coin}>
                   <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
                   <Typography sx={{ fontSize: '0.875rem', fontWeight: '700' }}>
                     {row.name}
                   </Typography>
                 </Box>
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <Typography sx={{ fontSize: '0.875rem' }}>
                   {fiat === 'eur' ? '€' : '$'}{price(row.current_price)}
                 </Typography>
-              </TableCell>
-              <TableCell align="right">
+              </StyledTableCell>
+              <StyledTableCell align="right">
                 <Typography sx={{ fontSize: '0.875rem' }}
                   color={`${row.price_change_percentage_24h_in_currency > 0 ? "success.main" : "error.main"}`}
                 >
                   {priceChange(row.price_change_percentage_24h_in_currency)}
                 </Typography>
-              </TableCell>
+              </StyledTableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </StyledTableContainer>
   );
 }
+
+const StyledTableContainer = styled(TableContainer)({
+  padding: '0 8px',
+})
+
+const StyledTableCell = styled(TableCell)({
+  padding: '20px 8px',
+})
