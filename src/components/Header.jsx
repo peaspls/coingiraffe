@@ -21,22 +21,25 @@ export default function Header() {
   const darkMode = React.useContext(DarkModeContext);
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <img className={cls.logo} src="/giraffe.svg" alt="Giraffe Logo" />
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Coingiraffe
-        </Typography>
-        <FormGroup>
-          <FormControlLabel sx={{ marginRight: 0 }} control={
-            <DarkModeSwitch
-              sx={{ m: 1 }}
-              checked={theme.palette.mode === 'dark'}
-              onChange={darkMode.toggle}
-            />}
-          />
-        </FormGroup>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar position="fixed">
+        <Toolbar>
+          <img className={cls.logo} src="/giraffe.svg" alt="Giraffe Logo" />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Coingiraffe
+          </Typography>
+          <FormGroup>
+            <FormControlLabel sx={{ marginRight: 0 }} control={
+              <DarkModeSwitch
+                sx={{ m: 1 }}
+                checked={theme.palette.mode === 'dark'}
+                onChange={darkMode.toggle}
+              />}
+            />
+          </FormGroup>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </>
   );
-}
+};

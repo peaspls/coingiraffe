@@ -1,37 +1,26 @@
 import React, { memo } from 'react';
-import { createUseStyles } from 'react-jss';
-import Paper from '@mui/material/Paper'
-import Tabs from '@mui/material/Tabs';
-
-const useStyles = createUseStyles({
-  space: {
-    marginTop: 72,
-  },
-  fixed: {
-    width: "100%",
-    position: "fixed",
-    bottom: 0
-  }
-});
+import BottomNavigation from '@mui/material/BottomNavigation';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 export default memo(function Nav(props) {
-  const cls = useStyles();
   const { value, onChange, children } = props;
 
   return (
     <>
-      <div className={cls.space}></div>
-      <Paper className={cls.fixed}>
-        <Tabs
+      <Box paddingBottom='56px' />
+      <Paper
+        sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
+        elevation={3}
+      >
+        <BottomNavigation
           value={value}
-          variant="fullWidth"
-          textColor="primary"
           onChange={(event, newValue) => {
             onChange(newValue);
           }}
         >
           {children}
-        </Tabs>
+        </BottomNavigation>
       </Paper>
     </>
   );
