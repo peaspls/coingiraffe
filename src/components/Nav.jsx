@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 
 export default memo(function Nav(props) {
   const { value, onChange, children } = props;
