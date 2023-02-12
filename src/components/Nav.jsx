@@ -8,7 +8,7 @@ export default memo(function Nav(props) {
 
   return (
     <>
-      <Box paddingBottom='56px' />
+      <BottomNavigation />
       <Paper
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
         elevation={3}
