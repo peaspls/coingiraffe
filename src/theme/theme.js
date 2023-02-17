@@ -11,17 +11,6 @@ export function makeTheme({ darkMode }) {
         xl: 1920
       }
     },
-    components: {
-      MuiTableCell: {
-        styleOverrides: {
-          root: {
-            '.MuiTableCell-root': {
-              padding: '20px 8px'
-            },
-          }
-        }
-      }
-    },
     palette: {
       mode: darkMode ? 'dark' : 'light',
       /*neutral: {
