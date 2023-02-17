@@ -46,18 +46,18 @@ export default function MarketsList(props) {
               <StyledTableCell>
                 <Box className={cls.coin}>
                   <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
-                  <Typography>
+                  <Typography sx={{ fontSize: '0.875rem' }}>
                     {row.name}
                   </Typography>
                 </Box>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Typography>
+                <Typography sx={{ fontSize: '0.875rem' }}>
                   {fiat === 'eur' ? '€' : '$'}{price(row.current_price)}
                 </Typography>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Typography
+                <Typography sx={{ fontSize: '0.875rem' }}
                   color={`${row.price_change_percentage_24h_in_currency > 0 ? "success.main" : "error.main"}`}
                 >
                   {priceChange(row.price_change_percentage_24h_in_currency)}
