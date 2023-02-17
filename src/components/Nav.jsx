@@ -13,6 +13,10 @@ export default memo(function Nav(props) {
         elevation={3}
       >
         <BottomNavigation
+          sx={{
+            bgcolor: theme => (
+              theme.palette.mode === 'light' ? '#f7f7f7' : '#2a2a2a'),
+          }}
           showLabels
           value={value}
           onChange={(event, newValue) => {

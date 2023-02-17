@@ -16,36 +16,26 @@ export function makeTheme({ darkMode }) {
       divider: '#E6E8F0',
       primary: {
         main: 'rgb(165 106 58)',
-        contrastText: '#FFFFFF'
+        contrastText: '#fafafa'
       },
       secondary: {
-        main: '#10B981',
-        light: '#3FC79A',
-        dark: '#0B815A',
+        main: '#f7f7f7',
         contrastText: '#FFFFFF'
       },
       success: {
         main: '#14B8A6',
-        light: '#43C6B7',
-        dark: '#0E8074',
         contrastText: '#FFFFFF'
       },
       info: {
         main: '#2196F3',
-        light: '#64B6F7',
-        dark: '#0B79D0',
         contrastText: '#FFFFFF'
       },
       warning: {
         main: '#FFB020',
-        light: '#FFBF4C',
-        dark: '#B27B16',
         contrastText: '#FFFFFF'
       },
       error: {
         main: '#D14343',
-        light: '#DA6868',
-        dark: '#922E2E',
         contrastText: '#FFFFFF'
       },
     },
