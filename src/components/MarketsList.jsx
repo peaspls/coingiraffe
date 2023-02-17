@@ -75,6 +75,10 @@ const StyledTableContainer = styled(TableContainer)({
   padding: '0 8px',
 })
 
-const StyledTableCell = styled(TableCell)({
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: '20px 8px',
-})
+  borderBottom: `1px solid ${theme.palette.mode === 'light'
+    ? '#f0f0f0'
+    : '#202020'
+    }`,
+}))
