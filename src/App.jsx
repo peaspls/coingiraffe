@@ -4,8 +4,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import DefaultLayout from './layout/DefaultLayout';
+import HomePage from './pages/HomePage';
 import MarketsPage from './pages/MarketsPage';
 import FavoritesPage from './pages/FavoritesPage';
+import SearchPage from './pages/SearchPage';
 import { DarkModeContext } from './context/DarkModeContext';
 import { makeTheme } from './theme/theme';
 import { registerSW } from 'virtual:pwa-register'
@@ -29,8 +31,10 @@ export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<DefaultLayout />}>
-        <Route path="/" element={<MarketsPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/markets" element={<MarketsPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Route>
     )
   );
