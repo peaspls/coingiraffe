@@ -17,23 +17,23 @@ export default defineConfig({
         name: "Coingiraffe",
         short_name: "Coingiraffe",
         description: "Crypto currency list",
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
+        theme_color: "#4a853b",
+        background_color: "#4a853b",
         display: "standalone",
         start_url: "/",
         icons: [
           {
-            src: "android-chrome-192x192.png",
+            src: "android-chrome-192x192.png?v=2",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "android-chrome-512x512.png",
+            src: "android-chrome-512x512.png?v=2",
             sizes: "512x512",
             type: "image/png"
           },
           {
-            src: "android-chrome-512x512.png",
+            src: "android-chrome-512x512.png?v=2",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable"

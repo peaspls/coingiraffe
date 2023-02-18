@@ -15,7 +15,7 @@ export function makeTheme({ darkMode }) {
       mode: darkMode ? 'dark' : 'light',
       divider: '#E6E8F0',
       primary: {
-        main: 'rgb(165 106 58)',
+        main: '#4a853b',
         contrastText: '#fafafa'
       },
       secondary: {
@@ -23,7 +23,7 @@ export function makeTheme({ darkMode }) {
         contrastText: '#FFFFFF'
       },
       success: {
-        main: '#14B8A6',
+        main: '#55a341',
         contrastText: '#FFFFFF'
       },
       info: {
