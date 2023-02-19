@@ -1,10 +1,16 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function SearchPage() {
   return (
-    <Box>
-      Search
-    </Box>
+    <>
+      <Header title="Search" />
+      <Box>
+        Search
+      </Box>
+      <Footer />
+    </>
   );
 };

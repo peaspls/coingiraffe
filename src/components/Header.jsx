@@ -15,7 +15,8 @@ const useStyles = createUseStyles({
   },
 });
 
-export default function Header() {
+export default function Header(props) {
+  const { title } = props;
   const cls = useStyles();
   const theme = useTheme();
   const darkMode = React.useContext(DarkModeContext);
@@ -26,7 +27,7 @@ export default function Header() {
         <Toolbar>
           <img className={cls.logo} src="/giraffe.svg" alt="Giraffe Logo" />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Coingiraffe
+            {title}
           </Typography>
           <FormGroup>
             <FormControlLabel sx={{ marginRight: 0 }} control={

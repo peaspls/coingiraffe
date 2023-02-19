@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
 import MarketsList from '../components/MarketsList';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function MarketsPage() {
   const [favorites, toggleFavorite] = useFavorites();
@@ -25,13 +27,17 @@ export default function MarketsPage() {
   });
 
   return (
-    <Box>
-      <MarketsList
-        fiat={'usd'}
-        markets={query.data}
-        favorites={favorites}
-        onToggleFavorite={toggleFavorite}
-      />
-    </Box>
+    <>
+      <Header title="Markets" />
+      <Box>
+        <MarketsList
+          fiat={'usd'}
+          markets={query.data}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+        />
+      </Box>
+      <Footer />
+    </>
   );
 };
