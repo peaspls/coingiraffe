@@ -16,14 +16,14 @@ export function makeTheme({ darkMode }) {
       divider: '#E6E8F0',
       primary: {
         main: '#4a853b',
-        contrastText: '#fafafa'
+        contrastText: '#f7f7f7'
       },
       secondary: {
         main: '#f7f7f7',
-        contrastText: '#FFFFFF'
+        contrastText: 'rgba(255, 255, 255, 0.85)'
       },
       success: {
-        main: '#55a341',
+        main: darkMode ? 'rgb(22, 199, 132)' : '#3a9d21',
         contrastText: '#FFFFFF'
       },
       info: {
@@ -35,9 +35,16 @@ export function makeTheme({ darkMode }) {
         contrastText: '#FFFFFF'
       },
       error: {
-        main: '#D14343',
+        main: darkMode ? 'rgb(239, 97, 104)' : '#cf1717',
         contrastText: '#FFFFFF'
       },
+      background: {
+        default: darkMode ? 'rgb(22, 27, 32)' : '#fff',
+        primary: darkMode ? 'rgb(34, 38, 43)' : '#4a853b',
+        secondary: darkMode ? 'rgb(34, 38, 43)' : '#f7f7f7',
+      },
+      containerContrast: darkMode ? 'rgb(42, 46, 53)' : 'transparent',
+      rowContrast: darkMode ? 'rgb(42, 46, 53)' : '#f0f0f0',
     },
     shape: {
       borderRadius: 8

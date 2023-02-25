@@ -23,7 +23,14 @@ export default function Header(props) {
 
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar
+        position="fixed"
+        sx={{
+          bgcolor: theme => (theme.palette.background.primary),
+          borderBottom: theme => (`1px solid ${theme.palette.containerContrast}`),
+          backgroundImage: 'none',
+        }}
+      >
         <Toolbar>
           <img className={cls.logo} src="/giraffe.svg" alt="Giraffe Logo" />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

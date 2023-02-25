@@ -14,15 +14,19 @@ export default function Footer() {
 
   return (
     <footer>
-      <BottomNavigation />
+      <BottomNavigation
+        sx={{
+          bgcolor: theme => (theme.palette.background.default),
+        }}
+      />
       <Paper
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
         elevation={3}
       >
         <BottomNavigation
           sx={{
-            bgcolor: theme => (
-              theme.palette.mode === 'light' ? '#f7f7f7' : '#2a2a2a'),
+            bgcolor: theme => (theme.palette.background.secondary),
+            borderTop: theme => (`1px solid ${theme.palette.containerContrast}`),
           }}
           showLabels
           value={location.pathname}
