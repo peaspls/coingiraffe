@@ -10,14 +10,20 @@ const useStyles = createUseStyles({
   }
 });
 
-const Favorite = (props) => {
+export default function Favorite(props) {
+  const { onClick, active } = props;
   const cls = useStyles();
 
   return (
-    <IconButton className={cls.favorite} aria-label="Add to favorites" onClick={(e) => props.onClick(e)}>
-      {props.active ? <FavoriteRoundedIcon color="primary" /> : <FavoriteBorderRoundedIcon color="action" />}
+    <IconButton
+      className={cls.favorite}
+      aria-label="Add to favorites"
+      onClick={onClick}
+    >
+      {active
+        ? <FavoriteRoundedIcon color="primary" />
+        : <FavoriteBorderRoundedIcon color="action" />
+      }
     </IconButton>
   );
 }
-
-export default Favorite;
