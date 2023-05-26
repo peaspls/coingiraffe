@@ -39,12 +39,12 @@ export function makeTheme({ darkMode }) {
         contrastText: '#FFFFFF'
       },
       background: {
-        default: darkMode ? 'rgb(22, 27, 32)' : '#fff',
+        default: darkMode ? 'rgb(22, 27, 32)' : '#f9f9f9',
         primary: darkMode ? 'rgb(34, 38, 43)' : '#4a853b',
         secondary: darkMode ? 'rgb(34, 38, 43)' : '#f7f7f7',
       },
       containerContrast: darkMode ? 'rgb(42, 46, 53)' : 'transparent',
-      rowContrast: darkMode ? 'rgb(42, 46, 53)' : '#f0f0f0',
+      rowContrast: darkMode ? 'rgb(42, 46, 53)' : '#e5e5e5',
     },
     shape: {
       borderRadius: 8
