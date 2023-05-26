@@ -65,7 +65,7 @@ export default function MarketsList(props) {
                 <Box className={cls.coin}>
                   <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
                   <Box className={cls.coin_text}>
-                    <Typography>
+                    <Typography sx={{ fontWeight: '500' }}>
                       {row.name}
                     </Typography>
                     <Box className={cls.coin_details}>
