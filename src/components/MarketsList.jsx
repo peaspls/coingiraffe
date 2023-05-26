@@ -10,11 +10,26 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { price, priceChange } from '../lib/formatter';
+import Favorite from './Favorite';
 
 const useStyles = createUseStyles({
   coin: {
     display: 'flex',
     alignItems: 'center',
+  },
+  coin_details: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  coin_rank: {
+    padding: '0 5px',
+    marginRight: '5px',
+    borderRadius: '5px',
+    background: 'rgb(240 240 240)',
+    color: 'rgb(88, 102, 126)',
+  },
+  coin_symbol: {
+    color: 'rgb(88, 102, 126)',
   },
   logo: {
     width: 20,
@@ -31,7 +46,7 @@ export default function MarketsList(props) {
       <Table size="medium">
         <TableHead>
           <TableRow>
-            <StyledTableCell size='medium' >#</StyledTableCell>
+            <StyledTableCell size='medium'></StyledTableCell>
             <StyledTableCell>Coin</StyledTableCell>
             <StyledTableCell align="right">Price</StyledTableCell>
             <StyledTableCell align="right">24h</StyledTableCell>
@@ -40,24 +55,41 @@ export default function MarketsList(props) {
         <TableBody>
           {markets?.map((row) => (
             <TableRow key={row.id}>
-              <StyledTableCell>
-                {row.market_cap_rank}
-              </StyledTableCell>
+              <StyledFav>
+                <Favorite
+                  active={favorites[row.id]}
+                  onClick={() => onToggleFavorite(row.id)}
+                />
+              </StyledFav>
               <StyledTableCell>
                 <Box className={cls.coin}>
                   <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
-                  <Typography sx={{ fontSize: '0.875rem' }}>
-                    {row.name}
-                  </Typography>
+                  <Box className={cls.coin_text}>
+                    <Typography>
+                      {row.name}
+                    </Typography>
+                    <Box className={cls.coin_details}>
+                      <Box className={cls.coin_rank}>
+                        <Typography sx={{ fontSize: '0.775rem' }}>
+                          {row.market_cap_rank}
+                        </Typography>
+                      </Box>
+                      <Box className={cls.coin_symbol}>
+                        <Typography sx={{ fontSize: '0.875rem', textTransform: 'uppercase' }}>
+                          {row.symbol}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                 </Box>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Typography sx={{ fontSize: '0.875rem' }}>
+                <Typography>
                   {fiat === 'eur' ? '€' : '$'}{price(row.current_price)}
                 </Typography>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Typography sx={{ fontSize: '0.875rem' }}
+                <Typography
                   color={`${row.price_change_percentage_24h_in_currency > 0 ? "success.main" : "error.main"}`}
                 >
                   {priceChange(row.price_change_percentage_24h_in_currency)}
@@ -76,6 +108,12 @@ const StyledTableContainer = styled(TableContainer)({
 })
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  padding: '20px 8px',
+  padding: '20px 4px',
+  borderBottom: `1px solid ${theme.palette.rowContrast}`,
+}))
+
+const StyledFav = styled(TableCell)(({ theme }) => ({
+  width: '40px',
+  padding: '20px 4px',
   borderBottom: `1px solid ${theme.palette.rowContrast}`,
 }))
