@@ -86,17 +86,17 @@ export default function MarketsList(props) {
                   <Box className={cls.coin_container}>
                     <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
                     <Box className={cls.coin_text}>
-                      <Typography sx={{ fontWeight: '500' }}>
+                      <Typography sx={{ fontWeight: '500', fontSize: '0.875rem' }}>
                         {row.name}
                       </Typography>
                       <Box className={cls.coin_subtext}>
                         <Box className={cls.coin_rank}>
-                          <Typography sx={{ fontSize: '0.775rem' }}>
+                          <Typography sx={{ fontSize: '0.75rem' }}>
                             {row.market_cap_rank}
                           </Typography>
                         </Box>
                         <Box className={cls.coin_symbol}>
-                          <Typography sx={{ fontSize: '0.875rem', textTransform: 'uppercase' }}>
+                          <Typography sx={{ fontSize: '0.75rem', textTransform: 'uppercase' }}>
                             {row.symbol}
                           </Typography>
                         </Box>
@@ -106,13 +106,14 @@ export default function MarketsList(props) {
                 </Box>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Typography>
+                <Typography sx={{ fontSize: '0.875rem' }}>
                   {fiat === 'eur' ? '€' : '$'}{price(row.current_price)}
                 </Typography>
               </StyledTableCell>
               <StyledTableCell align="right">
                 <Box className={cls.header_last}>
                   <Typography
+                    sx={{ fontSize: '0.875rem' }}
                     color={`${row.price_change_percentage_24h_in_currency > 0
                       ? "success.main"
                       : "error.main"}`}>
@@ -133,6 +134,6 @@ const StyledTableContainer = styled(TableContainer)({
 })
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  padding: '20px 4px',
+  padding: '15px 4px',
   borderBottom: `1px solid ${theme.palette.rowContrast}`,
 }))
