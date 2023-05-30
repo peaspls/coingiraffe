@@ -12,8 +12,8 @@ export default function FavoriteBtn(props) {
       onClick={onClick}
     >
       {active
-        ? <StarRoundedIcon sx={{ color: theme => (theme.palette.warning.main) }} color="primary" />
-        : <StarBorderRoundedIcon color="action" />
+        ? <StarRoundedIcon sx={{ fontSize: '1.3rem', color: theme => (theme.palette.warning.main) }} color="primary" />
+        : <StarBorderRoundedIcon sx={{ fontSize: '1.3rem' }} color="action" />
       }
     </IconButton>
   );
