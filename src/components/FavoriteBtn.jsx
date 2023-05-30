@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded'
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
 
 export default function FavoriteBtn(props) {
   const { onClick, active } = props;
@@ -12,8 +12,8 @@ export default function FavoriteBtn(props) {
       onClick={onClick}
     >
       {active
-        ? <FavoriteRoundedIcon color="primary" />
-        : <FavoriteBorderRoundedIcon color="action" />
+        ? <StarRoundedIcon sx={{ color: theme => (theme.palette.warning.main) }} color="primary" />
+        : <StarBorderRoundedIcon color="action" />
       }
     </IconButton>
   );
