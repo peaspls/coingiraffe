@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
-export default function Favorite(props) {
+export default function FavoriteBtn(props) {
   const { onClick, active } = props;
 
   return (

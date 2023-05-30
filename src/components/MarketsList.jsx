@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { price, priceChange } from '../lib/formatter';
-import Favorite from './Favorite';
+import FavoriteBtn from './FavoriteBtn';
 
 const useStyles = createUseStyles({
   header_first: {
@@ -78,7 +78,7 @@ export default function MarketsList(props) {
               <StyledTableCell>
                 <Box className={cls.coin}>
                   <Box className={cls.fav}>
-                    <Favorite
+                    <FavoriteBtn
                       active={favorites[row.id]}
                       onClick={() => onToggleFavorite(row.id)}
                     />
