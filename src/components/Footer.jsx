@@ -35,7 +35,6 @@ export default function Footer() {
           }}
         >
           <BottomNavigationAction label="Home" value="/" icon={<HomeRoundedIcon />} />
-          <BottomNavigationAction label="Markets" value="/markets" icon={<BarChartRoundedIcon />} />
           <BottomNavigationAction label="Favorites" value="/favorites" icon={<FavoriteRoundedIcon />} />
           <BottomNavigationAction label="Search" value="/search" icon={<SearchRoundedIcon />} />
         </BottomNavigation>

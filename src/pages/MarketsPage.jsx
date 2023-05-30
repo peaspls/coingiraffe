@@ -28,7 +28,7 @@ export default function MarketsPage() {
 
   return (
     <>
-      <Header title="Markets" />
+      <Header title="CoinGiraffe" />
       <Box>
         <MarketsList
           fiat={'usd'}
