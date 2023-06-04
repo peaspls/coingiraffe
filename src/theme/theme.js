@@ -20,6 +20,7 @@ export function makeTheme({ darkMode }) {
       },
       secondary: {
         main: '#f7f7f7',
+        main: darkMode ? '#a9a9a9' : '#58667e',
         contrastText: 'rgba(255, 255, 255, 0.85)'
       },
       success: {
@@ -41,7 +42,7 @@ export function makeTheme({ darkMode }) {
       background: {
         default: darkMode ? 'rgb(22, 27, 32)' : '#f9f9f9',
         primary: darkMode ? 'rgb(34, 38, 43)' : '#4a853b',
-        secondary: darkMode ? 'rgb(34, 38, 43)' : '#f7f7f7',
+        secondary: darkMode ? '#343a40' : '#f1f1f1',
       },
       containerContrast: darkMode ? 'rgb(42, 46, 53)' : 'transparent',
       rowContrast: darkMode ? 'rgb(42, 46, 53)' : '#e5e5e5',

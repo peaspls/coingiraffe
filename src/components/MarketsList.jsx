@@ -8,42 +8,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { price, priceChange } from '../lib/formatter';
 import FavoriteBtn from './FavoriteBtn';
 
 const useStyles = createUseStyles({
-  header_first: {
-    marginLeft: '10px',
-  },
-  header_last: {
-    marginRight: '10px',
-  },
-  coin: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  fav: {
-    width: '40px',
-  },
-  coin_container: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  coin_subtext: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  coin_rank: {
-    padding: '0 5px',
-    marginRight: '5px',
-    borderRadius: '5px',
-    background: 'rgb(240 240 240)',
-    color: 'rgb(88, 102, 126)',
-  },
-  coin_symbol: {
-    color: 'rgb(88, 102, 126)',
-  },
   logo: {
     width: 20,
     marginRight: 5
@@ -52,6 +22,7 @@ const useStyles = createUseStyles({
 
 export default function MarketsList(props) {
   const cls = useStyles();
+  const theme = useTheme();
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
@@ -60,13 +31,18 @@ export default function MarketsList(props) {
         <TableHead>
           <TableRow>
             <StyledTableCell>
-              <Box className={cls.header_first}>
+              <Box
+                sx={{
+                  marginLeft: '10px',
+                }}>
                 Coin
               </Box>
             </StyledTableCell>
             <StyledTableCell align="right">Price</StyledTableCell>
             <StyledTableCell align="right">
-              <Box className={cls.header_last}>
+              <Box sx={{
+                marginRight: '10px',
+              }}>
                 24h
               </Box>
             </StyledTableCell>
@@ -76,26 +52,47 @@ export default function MarketsList(props) {
           {markets?.map((row) => (
             <TableRow key={row.id}>
               <StyledTableCell>
-                <Box className={cls.coin}>
-                  <Box className={cls.fav}>
+                <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}>
+                  <Box sx={{
+                    width: '40px',
+                  }}>
                     <FavoriteBtn
                       active={favorites[row.id]}
                       onClick={() => onToggleFavorite(row.id)}
                     />
                   </Box>
-                  <Box className={cls.coin_container}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}>
                     <img className={cls.logo} src={row.image} alt={`${row.symbol} Logo`} />
                     <Box className={cls.coin_text}>
                       <Typography sx={{ fontWeight: '500', fontSize: '0.875rem' }}>
                         {row.name}
                       </Typography>
-                      <Box className={cls.coin_subtext}>
-                        <Box className={cls.coin_rank}>
+                      <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}>
+                        <Box
+                          sx={{
+                            bgcolor: (theme.palette.background.secondary),
+                            color: (theme.palette.secondary.main),
+                            padding: '0 5px',
+                            marginRight: '5px',
+                            borderRadius: '5px',
+                          }}>
                           <Typography sx={{ fontSize: '0.75rem' }}>
                             {row.market_cap_rank}
                           </Typography>
                         </Box>
-                        <Box className={cls.coin_symbol}>
+                        <Box
+                          sx={{
+                            color: (theme.palette.secondary.main),
+                          }}>
                           <Typography sx={{ fontSize: '0.75rem', textTransform: 'uppercase' }}>
                             {row.symbol}
                           </Typography>
@@ -111,7 +108,9 @@ export default function MarketsList(props) {
                 </Typography>
               </StyledTableCell>
               <StyledTableCell align="right">
-                <Box className={cls.header_last}>
+                <Box sx={{
+                  marginRight: '10px',
+                }}>
                   <Typography
                     sx={{ fontSize: '0.875rem' }}
                     color={`${row.price_change_percentage_24h_in_currency > 0
