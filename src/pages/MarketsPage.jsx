@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import { useQuery } from '@tanstack/react-query'
+import config from "../config/config";
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
 import MarketsList from '../components/MarketsList';
@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 export default function MarketsPage() {
   const [favorites, toggleFavorite] = useFavorites();
 
-  const marketQueryOptions = {
+  const marketParams = {
     vs_currency: 'usd',
     order: 'market_cap_desc',
     per_page: 50,
@@ -20,23 +20,21 @@ export default function MarketsPage() {
   };
 
   const query = useQuery({
-    queryKey: ['markets', marketQueryOptions],
+    queryKey: ['markets', marketParams],
     // refetchInterval: 10000, // 10s
     keepPreviousData: true,
-    queryFn: async () => getMarkets(marketQueryOptions)
+    queryFn: async () => getMarkets(marketParams, { mock: config.mock })
   });
 
   return (
     <>
       <Header title="CoinGiraffe" />
-      <Box>
-        <MarketsList
-          fiat={'usd'}
-          markets={query.data}
-          favorites={favorites}
-          onToggleFavorite={toggleFavorite}
-        />
-      </Box>
+      <MarketsList
+        fiat={'usd'}
+        markets={query.data}
+        favorites={favorites}
+        onToggleFavorite={toggleFavorite}
+      />
       <Footer />
     </>
   );

@@ -1,17 +1,15 @@
 import axios from "axios";
-import config from "../config/config";
 import markets from "../mock/markets";
 
 const baseApiURL = 'https://api.coingecko.com/api/v3';
 
-const getMarkets = async (options) => {
-  const params = new URLSearchParams(options);
-  const url = `${baseApiURL}/coins/markets?${params}`;
-
-  if (config.mock) {
+const getMarkets = async (marketParams, options) => {
+  if (options?.mock) {
     return markets;
   }
 
+  const urlParams = new URLSearchParams(marketParams);
+  const url = `${baseApiURL}/coins/markets?${urlParams}`;
   const { data } = await axios.get(url)
   return data
 };
