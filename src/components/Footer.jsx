@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
-import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import { Icon } from '@iconify/react';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import Paper from '@mui/material/Paper';
@@ -33,9 +31,21 @@ export default function Footer() {
             navigate(newValue);
           }}
         >
-          <BottomNavigationAction label="Home" value="/" icon={<HomeRoundedIcon />} />
-          <BottomNavigationAction label="Favorites" value="/favorites" icon={<StarRoundedIcon />} />
-          <BottomNavigationAction label="Search" value="/search" icon={<SearchRoundedIcon />} />
+          <BottomNavigationAction
+            label="Home"
+            value="/"
+            icon={<Icon icon="tabler:home" width="20" height="20" />}
+          />
+          <BottomNavigationAction
+            label="Favorites"
+            value="/favorites"
+            icon={<Icon icon="tabler:star-filled" width="20" height="20" />}
+          />
+          <BottomNavigationAction
+            label="Search"
+            value="/search"
+            icon={<Icon icon="tabler:search" width="20" height="20" />}
+          />
         </BottomNavigation>
       </Paper>
     </footer>

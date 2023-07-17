@@ -1,31 +1,20 @@
-import React, { useState, useMemo } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import React, { useEffect } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { prefersDarkMode } from './lib/mediaMatch';
+import { useDarkMode } from './hooks/darkMode';
 import DefaultLayout from './layout/DefaultLayout';
 import MarketsPage from './pages/MarketsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import SearchPage from './pages/SearchPage';
-import { DarkModeContext } from './context/DarkModeContext';
-import { makeTheme } from './theme/theme';
 import { registerSW } from 'virtual:pwa-register'
 
 export default function App() {
+  const [darkMode, setDarkMode] = useDarkMode();
   registerSW({ immediate: true })
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [darkMode, setDarkMode] = useState(prefersDarkMode);
-  const theme = makeTheme({ darkMode });
-
-  const toggleDarkMode = useMemo(
-    () => ({
-      toggle: () => {
-        setDarkMode((prevMode) => !prevMode);
-      },
-    }),
-    [],
-  );
+  useEffect(() => {
+    setDarkMode(prefersDarkMode)
+  }, []);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -38,11 +27,6 @@ export default function App() {
   );
 
   return (
-    <DarkModeContext.Provider value={toggleDarkMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </DarkModeContext.Provider>
+    <RouterProvider router={router} />
   );
 };
