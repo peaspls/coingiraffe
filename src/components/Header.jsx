@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { useDarkMode } from '../hooks/darkMode';
-import DarkModeSwitch from './DarkModeSwitch';
+import Switch from './Switch';
 
 export default function Header(props) {
   const { title } = props;
@@ -19,15 +17,10 @@ export default function Header(props) {
         Search
       </div>
       <div className="justify-self-end">
-        <FormGroup>
-          <FormControlLabel sx={{ marginRight: 0 }} control={
-            <DarkModeSwitch
-              sx={{ m: 1 }}
-              checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
-            />}
-          />
-        </FormGroup>
+        <Switch
+          isOn={darkMode}
+          onChange={() => setDarkMode(!darkMode)}
+        />
       </div>
     </nav>
   );
