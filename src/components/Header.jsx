@@ -8,10 +8,10 @@ export default function Header(props) {
   const [darkMode, setDarkMode] = useDarkMode();
 
   return (
-    <nav className="grid grid-cols-[auto_1fr_auto] h-14 sticky top-0 px-4 items-center bg-white/100 border-b border-slate-900/10 z-10">
+    <nav className="grid grid-cols-[auto_1fr_auto] h-14 sticky top-0 px-4 items-center bg-gray-50 border-b border-slate-900/10 z-10">
       <Link to="/" className="flex items-center">
         <img className="mr-2" src="/giraffe.svg" alt="Giraffe Logo" />
-        <div className="font-medium text-lg text-lime-600">{title}</div>
+        <div className="font-medium text-lg text-lime-700">{title}</div>
       </Link>
       <div className="justify-self-end ml-4">
         Search
