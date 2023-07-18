@@ -12,26 +12,23 @@ export default function Header(props) {
     <nav className="grid grid-cols-[auto_1fr_auto] h-14 sticky top-0 px-4 items-center bg-gray-50 border-b border-slate-900/10 z-10">
       <Link to="/" className="flex items-center">
         <img className="mr-2" src="/giraffe.svg" width="20px" height="40px" alt="Giraffe Logo" />
-        <div className="font-medium text-lg text-lime-700">{title}</div>
+        <div className="font-medium text-md text-lime-700">{title}</div>
       </Link>
-      <div className="flex justify-self-end ml-5">
-        <Link to="/search">
-          <Icon
-            icon="tabler:search"
-            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
-          />
-        </Link>
-        <Link to="/">
+
+      <div className="flex justify-self-end">
+        <Link to="/" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100">
           <Icon
             icon="tabler:home"
-            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
+            className="text-slate-800 p-[4px] w-[28px] h-[28px]"
           />
+          <span className="text-sm hidden">Home</span>
         </Link>
-        <Link to="/favorites">
+        <Link to="/favorites" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100">
           <Icon
             icon="tabler:star-filled"
-            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
+            className="text-slate-800 p-[4px] w-[28px] h-[28px]"
           />
+          <span className="text-sm hidden">Favorites</span>
         </Link>
       </div>
       <div className="justify-self-end ml-4">
