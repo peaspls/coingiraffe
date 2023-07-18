@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       animation: {
-        pop: 'pop 0.3s linear',
-        push: 'push 0.3s linear',
+        pop: 'pop 0.15s linear',
+        push: 'push 0.15s linear',
       },
       keyframes: {
         pop: {
