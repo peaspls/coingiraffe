@@ -5,7 +5,6 @@ import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
 import MarketsList from '../components/MarketsList';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 export default function MarketsPage() {
   const [favorites, toggleFavorite] = useFavorites();
@@ -35,7 +34,6 @@ export default function MarketsPage() {
         favorites={favorites}
         onToggleFavorite={toggleFavorite}
       />
-      <Footer />
     </>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 export default function MarketsPage() {
   return (
@@ -9,7 +8,6 @@ export default function MarketsPage() {
       <div>
         Favorites
       </div>
-      <Footer />
     </>
   );
 };

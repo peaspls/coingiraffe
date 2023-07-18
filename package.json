@@ -14,22 +14,15 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.16",
-    "@mui/material": "^5.10.16",
-    "@mui/styled-engine-sc": "^5.10.16",
     "@tanstack/react-query": "^4.23.0",
     "@tanstack/react-query-devtools": "^4.23.0",
     "axios": "^1.2.5",
     "d3": "^6.5.0",
-    "embla-carousel-react": "^7.0.7",
     "numeral": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-jss": "^10.5.1",
     "react-responsive": "^8.2.0",
-    "react-router-dom": "^6.4.5",
-    "styled-components": "^5.3.6"
+    "react-router-dom": "^6.4.5"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",

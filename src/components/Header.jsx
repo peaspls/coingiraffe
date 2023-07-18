@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useDarkMode } from '../hooks/darkMode';
 import DarkModeSwitch from './DarkModeSwitch';
+import { Icon } from '@iconify/react';
 
 export default function Header(props) {
   const { title } = props;
@@ -13,8 +14,25 @@ export default function Header(props) {
         <img className="mr-2" src="/giraffe.svg" width="20px" height="40px" alt="Giraffe Logo" />
         <div className="font-medium text-lg text-lime-700">{title}</div>
       </Link>
-      <div className="justify-self-end ml-4">
-        Search
+      <div className="flex justify-self-end ml-5">
+        <Link to="/search">
+          <Icon
+            icon="tabler:search"
+            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
+          />
+        </Link>
+        <Link to="/">
+          <Icon
+            icon="tabler:home"
+            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
+          />
+        </Link>
+        <Link to="/favorites">
+          <Icon
+            icon="tabler:star-filled"
+            className="text-slate-800 p-[4px] w-[30px] h-[30px] ml-3"
+          />
+        </Link>
       </div>
       <div className="justify-self-end ml-4">
         <DarkModeSwitch
