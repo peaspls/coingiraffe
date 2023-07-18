@@ -13,14 +13,14 @@ export default function FavoriteBtn(props) {
     >
       <Icon
         icon="tabler:star-filled"
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         className="text-yellow-500 absolute group-data-[ison=false]:opacity-0 group-data-[ison=true]:animate-push"
       />
       <Icon
         icon="tabler:star"
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         className="text-gray-500 absolute group-data-[ison=true]:opacity-0 group-data-[ison=false]:animate-push"
       />
     </button>
