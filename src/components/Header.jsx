@@ -10,7 +10,7 @@ export default function Header(props) {
   return (
     <nav className="grid grid-cols-[auto_1fr_auto] h-14 sticky top-0 px-4 items-center bg-gray-50 border-b border-slate-900/10 z-10">
       <Link to="/" className="flex items-center">
-        <img className="mr-2" src="/giraffe.svg" alt="Giraffe Logo" />
+        <img className="mr-2" src="/giraffe.svg" width="20px" height="40px" alt="Giraffe Logo" />
         <div className="font-medium text-lg text-lime-700">{title}</div>
       </Link>
       <div className="justify-self-end ml-4">
