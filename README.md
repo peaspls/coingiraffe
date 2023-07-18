@@ -2,13 +2,18 @@
 Read crypto prices using the Coingecko API. Website can be found at https://coingiraffe.netlify.app/
 
 ## Install
-Install the packages.
+Install the packages:
 ```
 npm i
 ```
 
-## Run
-Run a local web server listening
+## Run in development
+If you want to run a local env file:
+```
+cp .env .env.local
+```
+
+Run a local web server:
 ```
 npm run dev
 ```

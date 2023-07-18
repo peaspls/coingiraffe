@@ -1,5 +1,5 @@
 const config = {
-  mock: false,
+  mock: import.meta.env.VITE_MOCK || false,
 }
 
 export default config;
