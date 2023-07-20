@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDarkMode } from '../hooks/darkMode';
 import DarkModeSwitch from './DarkModeSwitch';
 import { Icon } from '@iconify/react';
@@ -16,20 +16,20 @@ export default function Header(props) {
       </Link>
 
       <div className="flex justify-self-end">
-        <Link to="/" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100">
+        <NavLink to="/" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 [&.active]:border-opacity-100 hover:border-opacity-100">
           <Icon
             icon="tabler:home"
             className="text-slate-800 p-[4px] w-[28px] h-[28px]"
           />
           <span className="text-sm hidden">Home</span>
-        </Link>
-        <Link to="/favorites" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100">
+        </NavLink>
+        <NavLink to="/favorites" className="flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 [&.active]:border-opacity-100 hover:border-opacity-100">
           <Icon
             icon="tabler:star-filled"
             className="text-slate-800 p-[4px] w-[28px] h-[28px]"
           />
           <span className="text-sm hidden">Favorites</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="justify-self-end ml-4">
         <DarkModeSwitch
