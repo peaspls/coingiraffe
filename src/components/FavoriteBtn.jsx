@@ -6,7 +6,7 @@ export default function FavoriteBtn(props) {
 
   return (
     <button
-      className="group flex items-center justify-center relative p-5 origin-center hover:bg-gray-600 hover:bg-opacity-5 rounded-full"
+      className="hover:bg-gray-100 dark:hover:bg-gray-800 group flex items-center justify-center relative p-5 origin-center rounded-full"
       aria-label="Add to favorites"
       onClick={onClick}
       data-ison={isOn ? "true" : "false"}
