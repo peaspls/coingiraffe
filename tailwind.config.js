@@ -7,6 +7,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        darkbody: '#161b20',
+      },
       animation: {
         pop: 'pop 0.15s linear',
         push: 'push 0.15s linear',

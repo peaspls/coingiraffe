@@ -17,7 +17,7 @@ export default function DarkModeSwitch(props) {
       onKeyDown={toggle}
       aria-checked={isOn}
       aria-label role="switch"
-      className="group hover:brightness-[105%] dark:hover:brightness-110 bg-slate-200 w-[44px] h-[20px] rounded-[50px] border-slate-300 border relative p-1 cursor-pointer flex justify-between items-center"
+      className="group hover:brightness-[105%] dark:hover:brightness-110 bg-stone-200 w-[44px] h-[20px] rounded-[50px] border-slate-300 border relative p-1 cursor-pointer flex justify-between items-center"
     >
       <input
         type="checkbox"
@@ -28,11 +28,11 @@ export default function DarkModeSwitch(props) {
       />
       <Icon
         icon="tabler:sun-filled"
-        className="bg-sky-900 text-yellow-200 p-[4px] w-[30px] h-[30px] left-[-4px] top-[-6px] transition-all group-aria-[checked=true]:translate-x-[20px] border-slate-200 group-aria-[checked=true]:opacity-0 absolute border rounded-full"
+        className="bg-neutral-600 text-stone-50 p-[4px] w-[30px] h-[30px] left-[-4px] top-[-6px] transition-all group-aria-[checked=true]:translate-x-[20px] border-slate-200 group-aria-[checked=true]:opacity-0 absolute border rounded-full"
       />
       <Icon
         icon="tabler:moon-filled"
-        className="bg-sky-900 text-yellow-200 p-[4px] w-[30px] h-[30px] left-[-4px] top-[-6px] transition-all group-aria-[checked=true]:translate-x-[20px] border-slate-200 opacity-0 group-aria-[checked=true]:opacity-100 absolute border rounded-full"
+        className="bg-stone-50 text-neutral-600 p-[4px] w-[30px] h-[30px] left-[-4px] top-[-6px] transition-all group-aria-[checked=true]:translate-x-[20px] border-stone-400 opacity-0 group-aria-[checked=true]:opacity-100 absolute border rounded-full"
       />
     </label>
   );
