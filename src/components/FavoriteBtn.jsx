@@ -6,7 +6,7 @@ export default function FavoriteBtn(props) {
 
   return (
     <button
-      className="group relative flex origin-center items-center justify-center rounded-full p-5 hover:bg-gray-100 dark:hover:bg-gray-800"
+      className="group relative flex origin-center items-center justify-center rounded-full p-5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
       aria-label="Add to favorites"
       onClick={onClick}
       data-ison={isOn ? "true" : "false"}
@@ -21,7 +21,7 @@ export default function FavoriteBtn(props) {
         icon="tabler:star"
         width="18"
         height="18"
-        className="absolute text-gray-600 group-data-[ison=false]:animate-push group-data-[ison=true]:opacity-0"
+        className="absolute text-neutral-600 group-data-[ison=false]:animate-push group-data-[ison=true]:opacity-0"
       />
     </button>
   );

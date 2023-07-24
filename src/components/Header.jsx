@@ -9,7 +9,7 @@ export default function Header(props) {
   const [darkMode, setDarkMode] = useDarkMode();
 
   return (
-    <nav className="sticky top-0 z-10 grid h-16 grid-cols-[auto_1fr_auto] items-center border-b border-slate-900/10 bg-stone-100 px-4 dark:bg-neutral-800">
+    <nav className="sticky top-0 z-10 grid h-16 grid-cols-[auto_1fr_auto] items-center bg-white px-4 dark:bg-neutral-900">
       <Link to="/" className="flex min-w-max items-center">
         <img
           className="mr-2"
@@ -18,7 +18,7 @@ export default function Header(props) {
           height="40px"
           alt="Giraffe Logo"
         />
-        <div className="text-lg font-medium text-lime-700 dark:text-stone-200 max-[320px]:text-xs">
+        <div className="text-lg font-medium text-lime-600 dark:text-neutral-300 max-[320px]:text-xs">
           {title}
         </div>
       </Link>
@@ -26,7 +26,7 @@ export default function Header(props) {
       <div className="flex justify-self-end">
         <NavLink
           to="/"
-          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
+          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-600 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
         >
           <Icon
             icon="tabler:home"
@@ -36,7 +36,7 @@ export default function Header(props) {
         </NavLink>
         <NavLink
           to="/favorites"
-          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
+          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-600 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
         >
           <Icon
             icon="tabler:star-filled"
