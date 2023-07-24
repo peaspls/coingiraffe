@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaQuery from 'react-responsive'
+import MediaQuery from 'react-responsive';
 import MarketsListSm from './MarketListSm';
 import MarketsListMd from './MarketListMd';
 

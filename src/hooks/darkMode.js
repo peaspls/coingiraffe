@@ -14,7 +14,7 @@ const useDarkMode = () => {
   const [darkMode, setDarkMode] = useState(currentMode);
 
   const set = (darkMode) => {
-    currentMode = darkMode
+    currentMode = darkMode;
     setDarkMode(currentMode);
     applyDarkMode(currentMode);
   };

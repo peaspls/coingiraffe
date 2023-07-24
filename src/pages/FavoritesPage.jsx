@@ -4,10 +4,8 @@ import Header from '../components/Header';
 export default function MarketsPage() {
   return (
     <>
-      <Header title="Favorites" />
-      <div>
-        Favorites
-      </div>
+      <Header title='Favorites' />
+      <div>Favorites</div>
     </>
   );
-};
+}

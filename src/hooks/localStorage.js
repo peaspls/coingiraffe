@@ -12,7 +12,7 @@ const saveToLocalStorage = async (key, value) => {
 const useLocalStorage = ({ key, defaultValue }) => {
   const [value, setValue] = useState(getFromLocalStorage(key, defaultValue));
 
-  const set = (value) => { 
+  const set = (value) => {
     setValue(value);
     saveToLocalStorage(key, value);
   };

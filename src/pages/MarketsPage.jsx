@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query'
-import config from "../config/config";
+import { useQuery } from '@tanstack/react-query';
+import config from '../config/config';
 import { useFavorites } from '../hooks/favorites';
 import { getMarkets } from '../api/markets';
 import MarketsList from '../components/MarketsList';
@@ -15,19 +15,19 @@ export default function MarketsPage() {
     per_page: 50,
     page: 1,
     sparkline: false,
-    price_change_percentage: '24h'
+    price_change_percentage: '24h',
   };
 
   const query = useQuery({
     queryKey: ['markets', marketParams],
     // refetchInterval: 10000, // 10s
     keepPreviousData: true,
-    queryFn: async () => getMarkets(marketParams, { mock: config.mock })
+    queryFn: async () => getMarkets(marketParams, { mock: config.mock }),
   });
 
   return (
     <>
-      <Header title="CoinGiraffe" />
+      <Header title='CoinGiraffe' />
       <MarketsList
         fiat={'usd'}
         markets={query.data}
@@ -36,4 +36,4 @@ export default function MarketsPage() {
       />
     </>
   );
-};
+}

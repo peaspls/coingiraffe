@@ -17,6 +17,6 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 
   return intervalId.current;
-}
+};
 
 export { useInterval };
