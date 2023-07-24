@@ -1,39 +1,40 @@
-import React from 'react';
-import { price, priceChange } from '../lib/formatter';
-import FavoriteBtn from './FavoriteBtn';
+import React from "react";
+import { price, priceChange } from "../lib/formatter";
+import FavoriteBtn from "./FavoriteBtn";
 
 export default function MarketsListSm(props) {
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
-    <section className='dark:bg-darkbody text-neutral-600 dark:text-stone-200 p-2'>
-      <header className='grid-cols-[auto_100px] h-16 grid justify-items-stretch font-medium items-center text-base'>
-        <div className='w-auto p-1'>Coin</div>
-        <div className='p-1 justify-self-end'>24h</div>
+    <section className="p-2 text-neutral-600 dark:bg-darkbody dark:text-stone-200">
+      <header className="grid h-16 grid-cols-[auto_100px] items-center justify-items-stretch text-base font-medium">
+        <div className="w-auto p-1">Coin</div>
+        <div className="justify-self-end p-1">24h</div>
       </header>
       <div>
         {markets?.map((row) => (
           <div
-            className='dark:border-stone-800 grid-cols-[auto_100px] min-h-[70px] pt-2 pb-2 grid justify-items-stretch font-normal items-center border-b first:border-t'
-            key={row.id}>
-            <div className='w-auto flex m-[-5px]'>
+            className="grid min-h-[70px] grid-cols-[auto_100px] items-center justify-items-stretch border-b pb-2 pt-2 font-normal first:border-t dark:border-stone-800"
+            key={row.id}
+          >
+            <div className="m-[-5px] flex w-auto">
               <FavoriteBtn
                 isOn={favorites[row.id]}
                 onClick={() => onToggleFavorite(row.id)}
               />
-              <div className='flex items-center ml-1'>
+              <div className="ml-1 flex items-center">
                 <img
-                  className='w-5 mr-2'
+                  className="mr-2 w-5"
                   src={row.image}
                   alt={`${row.symbol} Logo`}
                 />
                 <div>
-                  <div className='text-base font-medium'>{row.name}</div>
-                  <div className='flex items-center'>
-                    <div className='bg-stone-100 dark:bg-gray-800 dark:text-neutral-400 text-sm px-1 py-0 mr-1 rounded'>
+                  <div className="text-base font-medium">{row.name}</div>
+                  <div className="flex items-center">
+                    <div className="mr-1 rounded bg-stone-100 px-1 py-0 text-sm dark:bg-gray-800 dark:text-neutral-400">
                       {row.market_cap_rank}
                     </div>
-                    <div className='dark:text-neutral-400 text-sm uppercase'>
+                    <div className="text-sm uppercase dark:text-neutral-400">
                       {row.symbol}
                     </div>
                   </div>
@@ -41,18 +42,19 @@ export default function MarketsListSm(props) {
               </div>
             </div>
 
-            <div className='flex flex-col items-end p-1 justify-self-end'>
+            <div className="flex flex-col items-end justify-self-end p-1">
               <span
                 className={`text-base ${
                   row.price_change_percentage_24h_in_currency > 0
-                    ? 'text-emerald-600'
-                    : 'text-rose-600'
-                }`}>
+                    ? "text-emerald-600"
+                    : "text-rose-600"
+                }`}
+              >
                 {priceChange(row.price_change_percentage_24h_in_currency)}
               </span>
 
-              <span className='text-sm'>
-                {fiat === 'eur' ? '€' : '$'}
+              <span className="text-sm">
+                {fiat === "eur" ? "€" : "$"}
                 {price(row.current_price)}
               </span>
             </div>

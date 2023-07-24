@@ -1,7 +1,7 @@
-import React from 'react';
-import MediaQuery from 'react-responsive';
-import MarketsListSm from './MarketListSm';
-import MarketsListMd from './MarketListMd';
+import React from "react";
+import MediaQuery from "react-responsive";
+import MarketsListSm from "./MarketListSm";
+import MarketsListMd from "./MarketListMd";
 
 export default function MarketsList(props) {
   return (

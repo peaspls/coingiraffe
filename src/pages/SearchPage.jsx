@@ -1,10 +1,10 @@
-import React from 'react';
-import Header from '../components/Header';
+import React from "react";
+import Header from "../components/Header";
 
 export default function SearchPage() {
   return (
     <>
-      <Header title='Search' />
+      <Header title="Search" />
       <div>Search</div>
     </>
   );

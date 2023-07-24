@@ -1,49 +1,51 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useDarkMode } from '../hooks/darkMode';
-import DarkModeSwitch from './DarkModeSwitch';
-import { Icon } from '@iconify/react';
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useDarkMode } from "../hooks/darkMode";
+import DarkModeSwitch from "./DarkModeSwitch";
+import { Icon } from "@iconify/react";
 
 export default function Header(props) {
   const { title } = props;
   const [darkMode, setDarkMode] = useDarkMode();
 
   return (
-    <nav className='grid grid-cols-[auto_1fr_auto] h-16 sticky top-0 px-4 items-center bg-stone-100 dark:bg-neutral-800 border-b border-slate-900/10 z-10'>
-      <Link to='/' className='flex items-center min-w-max'>
+    <nav className="sticky top-0 z-10 grid h-16 grid-cols-[auto_1fr_auto] items-center border-b border-slate-900/10 bg-stone-100 px-4 dark:bg-neutral-800">
+      <Link to="/" className="flex min-w-max items-center">
         <img
-          className='mr-2'
-          src='/giraffe.svg'
-          width='20px'
-          height='40px'
-          alt='Giraffe Logo'
+          className="mr-2"
+          src="/giraffe.svg"
+          width="20px"
+          height="40px"
+          alt="Giraffe Logo"
         />
-        <div className='font-medium text-lg text-lime-700 dark:text-stone-200 max-[320px]:text-xs'>
+        <div className="text-lg font-medium text-lime-700 dark:text-stone-200 max-[320px]:text-xs">
           {title}
         </div>
       </Link>
 
-      <div className='flex justify-self-end'>
+      <div className="flex justify-self-end">
         <NavLink
-          to='/'
-          className='flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 [&.active]:border-opacity-100 hover:border-opacity-100'>
+          to="/"
+          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
+        >
           <Icon
-            icon='tabler:home'
-            className='text-neutral-600 dark:text-stone-200 p-[4px] w-[28px] h-[28px]'
+            icon="tabler:home"
+            className="h-[28px] w-[28px] p-[4px] text-neutral-600 dark:text-stone-200"
           />
-          <span className='text-sm hidden'>Home</span>
+          <span className="hidden text-sm">Home</span>
         </NavLink>
         <NavLink
-          to='/favorites'
-          className='flex flex-row items-center justify-center ml-2 mr-2 border-b-2 border-lime-700 border-opacity-0 [&.active]:border-opacity-100 hover:border-opacity-100'>
+          to="/favorites"
+          className="ml-2 mr-2 flex flex-row items-center justify-center border-b-2 border-lime-700 border-opacity-0 hover:border-opacity-100 [&.active]:border-opacity-100"
+        >
           <Icon
-            icon='tabler:star-filled'
-            className='text-neutral-600 dark:text-stone-200 p-[4px] w-[28px] h-[28px]'
+            icon="tabler:star-filled"
+            className="h-[28px] w-[28px] p-[4px] text-neutral-600 dark:text-stone-200"
           />
-          <span className='text-sm hidden'>Favorites</span>
+          <span className="hidden text-sm">Favorites</span>
         </NavLink>
       </div>
-      <div className='justify-self-end ml-4'>
+      <div className="ml-4 justify-self-end">
         <DarkModeSwitch
           isOn={darkMode}
           onChange={() => setDarkMode(!darkMode)}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const getFromLocalStorage = (key, defaultValue) => {
   const value = window.localStorage.getItem(key);

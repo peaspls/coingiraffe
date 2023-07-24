@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 let currentMode = false;
 
 const applyDarkMode = (darkMode) => {
   if (darkMode) {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.remove("dark");
   }
 };
 

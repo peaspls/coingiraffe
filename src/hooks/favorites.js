@@ -1,8 +1,8 @@
-import { useLocalStorage } from './localStorage';
+import { useLocalStorage } from "./localStorage";
 
 const useFavorites = () => {
   const [favorites, setFavorites] = useLocalStorage({
-    key: 'favorites',
+    key: "favorites",
     defaultValue: {},
   });
 

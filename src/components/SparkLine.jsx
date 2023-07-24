@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from 'react';
-import { createUseStyles } from 'react-jss';
-import { select, min, max, area, scaleLinear } from 'd3';
+import React, { useEffect, useRef } from "react";
+import { createUseStyles } from "react-jss";
+import { select, min, max, area, scaleLinear } from "d3";
 
 const makeChart = ({ data, width, height, element, className }) => {
   const margin = 2;
   const svg = select(element)
-    .append('svg')
-    .attr('width', width - 2 * margin)
-    .attr('height', height)
-    .attr('class', className)
-    .append('g')
-    .attr('transform', 'translate(' + -margin + ',0)');
+    .append("svg")
+    .attr("width", width - 2 * margin)
+    .attr("height", height)
+    .attr("class", className)
+    .append("g")
+    .attr("transform", "translate(" + -margin + ",0)");
 
   const x = scaleLinear().domain([0, data.length]).range([0, width]);
   const y = scaleLinear()
@@ -18,10 +18,10 @@ const makeChart = ({ data, width, height, element, className }) => {
     .range([height, 0]);
 
   svg
-    .append('path')
+    .append("path")
     .datum(data)
     .attr(
-      'd',
+      "d",
       area()
         .x((d, i) => x(i))
         .y0(y(0))
@@ -31,10 +31,10 @@ const makeChart = ({ data, width, height, element, className }) => {
 
 const useStyles = createUseStyles({
   sparkline: {
-    fill: '#ecf5fd',
-    stroke: '#2d79c5',
+    fill: "#ecf5fd",
+    stroke: "#2d79c5",
     strokeWidth: 1,
-    margin: '0 10px',
+    margin: "0 10px",
   },
 });
 
