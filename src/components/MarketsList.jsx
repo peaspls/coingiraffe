@@ -6,11 +6,11 @@ import MarketsListMd from "./MarketListMd";
 export default function MarketsList(props) {
   return (
     <>
-      <MediaQuery maxWidth={500}>
+      <MediaQuery maxWidth={810}>
         <MarketsListSm {...props} />
       </MediaQuery>
 
-      <MediaQuery minWidth={500}>
+      <MediaQuery minWidth={810}>
         <MarketsListMd {...props} />
       </MediaQuery>
     </>

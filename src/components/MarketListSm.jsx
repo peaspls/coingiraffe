@@ -1,6 +1,7 @@
 import React from "react";
-import { price, priceChange } from "../lib/formatter";
 import FavoriteBtn from "./FavoriteBtn";
+import PricePercentageChange from "./PricePercentageChange";
+import Price from "./Price";
 
 export default function MarketsListSm(props) {
   const { fiat, markets, favorites, onToggleFavorite } = props;
@@ -41,22 +42,11 @@ export default function MarketsListSm(props) {
                 </div>
               </div>
             </div>
-
             <div className="flex flex-col items-end justify-self-end p-1">
-              <span
-                className={`text-base ${
-                  row.price_change_percentage_24h_in_currency > 0
-                    ? "text-lime-600"
-                    : "text-red-600"
-                }`}
-              >
-                {priceChange(row.price_change_percentage_24h_in_currency)}
-              </span>
-
-              <span className="text-sm">
-                {fiat === "eur" ? "€" : "$"}
-                {price(row.current_price)}
-              </span>
+              <PricePercentageChange
+                value={row.price_change_percentage_24h_in_currency}
+              />
+              <Price value={row.current_price} fiat={fiat} />
             </div>
           </div>
         ))}
