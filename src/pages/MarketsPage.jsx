@@ -15,7 +15,7 @@ export default function MarketsPage() {
     per_page: 50,
     page: 1,
     sparkline: false,
-    price_change_percentage: "24h",
+    price_change_percentage: "1h,24h,7d",
   };
 
   const query = useQuery({
