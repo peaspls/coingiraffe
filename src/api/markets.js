@@ -5,6 +5,7 @@ const baseApiURL = "https://api.coingecko.com/api/v3";
 
 const getMarkets = async (marketParams, options) => {
   if (options?.mock) {
+    console.log("Returning mock data for markets", markets);
     return markets;
   }
 
