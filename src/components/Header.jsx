@@ -18,7 +18,7 @@ export default function Header(props) {
           height="40px"
           alt="Giraffe Logo"
         />
-        <div className="text-lg font-medium text-lime-600 dark:text-neutral-300 max-[320px]:text-xs">
+        <div className="text-lg font-medium text-neutral-700 dark:text-neutral-200 max-[320px]:text-xs">
           {title}
         </div>
       </Link>
@@ -30,7 +30,7 @@ export default function Header(props) {
         >
           <Icon
             icon="tabler:home"
-            className="h-[28px] w-[28px] p-[4px] text-neutral-600 dark:text-stone-200"
+            className="h-[28px] w-[28px] p-[4px] text-neutral-700 dark:text-neutral-200"
           />
           <span className="hidden text-sm">Home</span>
         </NavLink>
@@ -40,7 +40,7 @@ export default function Header(props) {
         >
           <Icon
             icon="tabler:star-filled"
-            className="h-[28px] w-[28px] p-[4px] text-neutral-600 dark:text-stone-200"
+            className="h-[28px] w-[28px] p-[4px] text-neutral-700 dark:text-neutral-200"
           />
           <span className="hidden text-sm">Favorites</span>
         </NavLink>

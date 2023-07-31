@@ -8,7 +8,7 @@ export default function MarketsListSm(props) {
   const { fiat, markets, favorites, onToggleFavorite } = props;
 
   return (
-    <section className="p-2 text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300">
+    <section className="p-2 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
       <header className="grid h-16 grid-cols-[auto_100px_120px] items-center justify-items-stretch text-base font-medium">
         <div className="w-auto p-1">Coin</div>
         <div className="justify-self-end p-1">24h</div>
