@@ -9,7 +9,7 @@ export default function MarketsListMd(props) {
 
   return (
     <section className="p-2 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
-      <header className="grid h-16 grid-cols-[auto_100px_70px_70px_70px_150px_120px] items-center justify-items-stretch text-base font-medium">
+      <header className="grid h-16 grid-cols-[auto_100px_70px_70px_70px_150px_160px] items-center justify-items-stretch text-base font-medium">
         <div className="w-auto p-1">Coin</div>
         <div className="justify-self-end p-1">Price</div>
         <div className="justify-self-end p-1">1h</div>
@@ -21,7 +21,7 @@ export default function MarketsListMd(props) {
       <div>
         {markets?.map((row) => (
           <div
-            className="grid min-h-[70px] grid-cols-[auto_100px_70px_70px_70px_150px_120px] items-center justify-items-stretch border-b pb-2 pt-2 font-normal first:border-t dark:border-neutral-800"
+            className="grid min-h-[70px] grid-cols-[auto_100px_70px_70px_70px_150px_160px] items-center justify-items-stretch border-b pb-2 pt-2 font-normal first:border-t dark:border-neutral-800"
             key={row.id}
           >
             <div className="m-[-5px] flex w-auto">
@@ -72,7 +72,7 @@ export default function MarketsListMd(props) {
 
             <div className="flex flex-col items-end justify-self-end p-1">
               <SparkLine
-                width={100}
+                width={140}
                 height={50}
                 data={row.sparkline_in_7d.price}
                 className={`m-0 fill-none stroke-1 ${
