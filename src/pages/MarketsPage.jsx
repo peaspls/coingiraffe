@@ -14,7 +14,7 @@ export default function MarketsPage() {
     order: "market_cap_desc",
     per_page: 50,
     page: 1,
-    sparkline: false,
+    sparkline: true,
     price_change_percentage: "1h,24h,7d",
   };
 
