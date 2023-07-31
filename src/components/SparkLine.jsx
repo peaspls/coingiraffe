@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { createUseStyles } from "react-jss";
 import { select, min, max, area, scaleLinear } from "d3";
 
 const makeChart = ({ data, width, height, element, className }) => {
@@ -29,17 +28,7 @@ const makeChart = ({ data, width, height, element, className }) => {
     );
 };
 
-const useStyles = createUseStyles({
-  sparkline: {
-    fill: "#ecf5fd",
-    stroke: "#2d79c5",
-    strokeWidth: 1,
-    margin: "0 10px",
-  },
-});
-
 export default function SparkLine(props) {
-  const cls = useStyles();
   const ref = useRef(null);
   const { data, width, height, className } = props;
 
@@ -49,7 +38,7 @@ export default function SparkLine(props) {
       width: width || 135,
       height: height || 50,
       element: ref.current,
-      className: cls.sparkline,
+      className: className,
     });
   }, [ref]);
 
